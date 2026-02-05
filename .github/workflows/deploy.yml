@@ -8,47 +8,28 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Beget VPS
+    name: Deploy to Beget via FTP
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@master
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.BEGET_HOST }}
-          username: ${{ secrets.BEGET_USER }}
-          password: ${{ secrets.BEGET_PASSWORD }}
-          port: 22
-          script: |
-            # Создать директорию для проекта если не существует
-            mkdir -p /home/dpepelyaev/zerno-very
-
-            # Очистить старые файлы (опционально)
-            # rm -rf /home/dpepelyaev/zerno-very/*
-
-      - name: Upload files via SCP
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.BEGET_HOST }}
-          username: ${{ secrets.BEGET_USER }}
-          password: ${{ secrets.BEGET_PASSWORD }}
-          port: 22
-          source: "index.html,styles.css,script.js,optimized/*"
-          target: "/home/dpepelyaev/zerno-very/"
-          strip_components: 0
-
-      - name: Verify deployment
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.BEGET_HOST }}
-          username: ${{ secrets.BEGET_USER }}
-          password: ${{ secrets.BEGET_PASSWORD }}
-          port: 22
-          script: |
-            echo "✅ Deployed files:"
-            ls -lah /home/dpepelyaev/zerno-very/
-            echo ""
-            echo "🌐 Site available at: http://zerno-very.aipepden.store"
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/photos/**
+            **/*.md
+            **/README.md
+            **/.DS_Store
+            **/docs/**
+            **/specs/**
+            **/.github/**
