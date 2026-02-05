@@ -15,6 +15,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Check FTP directory structure
+        run: |
+          sudo apt-get install -y lftp > /dev/null 2>&1
+          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
+            echo '=== FTP ROOT ==='
+            ls
+            echo '=== SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }} ==='
+            ls ${{ secrets.FTP_SERVER_DIR }} 2>/dev/null || echo 'DIR NOT FOUND'
+            echo '=== LOOKING FOR public_html ==='
+            find / -maxdepth 3 -name 'index.html' 2>/dev/null | head -10
+            bye
+          "
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
