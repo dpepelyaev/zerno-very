@@ -1,0 +1,401 @@
+{
+  "$schema": "https://tr.designtokens.org/format/v1.0",
+  "colors": {
+    "primary": {
+      "olive": {
+        "$type": "color",
+        "$value": "#7D8B5E",
+        "$description": "Оливковый — для иконок, ростков, акцентов"
+      },
+      "olive-light": {
+        "$type": "color",
+        "$value": "#9CAA7D",
+        "$description": "Светлый оливковый — hover состояния"
+      },
+      "dark": {
+        "$type": "color",
+        "$value": "#2D4A3E",
+        "$description": "Тёмно-зелёный — заголовки, акценты"
+      }
+    },
+    "surface": {
+      "background": {
+        "$type": "color",
+        "$value": "#E8DCC8",
+        "$description": "Основной фон страницы"
+      },
+      "beige": {
+        "$type": "color",
+        "$value": "#D4C4A8",
+        "$description": "Фон карточек и блоков"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Белый — контрастные карточки"
+      },
+      "light": {
+        "$type": "color",
+        "$value": "#F5EFE1",
+        "$description": "Очень светлый бежевый"
+      }
+    },
+    "accent": {
+      "gold": {
+        "$type": "color",
+        "$value": "#C9A227",
+        "$description": "Охра — декоративные элементы, зерно"
+      },
+      "red": {
+        "$type": "color",
+        "$value": "#B22222",
+        "$description": "CTA-кнопки, важные акценты"
+      },
+      "red-hover": {
+        "$type": "color",
+        "$value": "#8B1A1A",
+        "$description": "CTA кнопки в hover состоянии"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "#1A1A1A",
+        "$description": "Основной текст"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "#4A4A4A",
+        "$description": "Второстепенный текст, описания"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Текст на тёмном фоне"
+      },
+      "light": {
+        "$type": "color",
+        "$value": "#E8DCC8",
+        "$description": "Светлый текст на тёмном фоне"
+      }
+    },
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "#D4C4A8",
+        "$description": "Границы карточек"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#7D8B5E",
+        "$description": "Акцентные границы"
+      }
+    }
+  },
+  "spacing": {
+    "xs": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Минимальные отступы"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Мелкие детали, иконки"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Между элементами"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Внутри блоков"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Между группами"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Между подсекциями"
+    },
+    "3xl-desktop": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Между секциями Desktop"
+    },
+    "3xl-mobile": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "Между секциями Mobile"
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "heading": {
+        "$type": "fontFamily",
+        "$value": "Cormorant Garamond",
+        "$description": "Заголовки"
+      },
+      "body": {
+        "$type": "fontFamily",
+        "$value": "PT Serif",
+        "$description": "Основной текст"
+      },
+      "fallback-heading": {
+        "$type": "fontFamily",
+        "$value": "Old Standard TT",
+        "$description": "Альтернатива для заголовков"
+      },
+      "fallback-body": {
+        "$type": "fontFamily",
+        "$value": "Open Sans",
+        "$description": "Альтернатива для текста"
+      }
+    },
+    "fontWeights": {
+      "regular": {
+        "$type": "fontWeight",
+        "$value": "400"
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": "500"
+      },
+      "semibold": {
+        "$type": "fontWeight",
+        "$value": "600"
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": "700"
+      }
+    },
+    "fontSize": {
+      "h1-desktop": {
+        "$type": "dimension",
+        "$value": "64px"
+      },
+      "h1-mobile": {
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "h2-desktop": {
+        "$type": "dimension",
+        "$value": "48px"
+      },
+      "h2-mobile": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "h3-desktop": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "h3-mobile": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "body-large": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "body": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "body-small": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "quote-desktop": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "quote-mobile": {
+        "$type": "dimension",
+        "$value": "20px"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$type": "number",
+        "$value": 1.2,
+        "$description": "120% — для заголовков H1"
+      },
+      "snug": {
+        "$type": "number",
+        "$value": 1.3,
+        "$description": "130% — для заголовков H2"
+      },
+      "normal": {
+        "$type": "number",
+        "$value": 1.4,
+        "$description": "140% — для H3"
+      },
+      "relaxed": {
+        "$type": "number",
+        "$value": 1.5,
+        "$description": "150% — для цитат"
+      },
+      "loose": {
+        "$type": "number",
+        "$value": 1.6,
+        "$description": "160% — для основного текста"
+      }
+    }
+  },
+  "borderRadius": {
+    "sm": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Мелкие элементы"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Карточки, блоки"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Большие карточки"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Кнопки"
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "9999px",
+      "$description": "Круглые элементы"
+    }
+  },
+  "shadows": {
+    "sm": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.06)",
+        "offsetX": "0px",
+        "offsetY": "4px",
+        "blur": "16px",
+        "spread": "0px"
+      },
+      "$description": "Лёгкая тень для карточек"
+    },
+    "md": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.08)",
+        "offsetX": "0px",
+        "offsetY": "8px",
+        "blur": "24px",
+        "spread": "0px"
+      },
+      "$description": "Средняя тень"
+    },
+    "lg": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(0, 0, 0, 0.1)",
+        "offsetX": "0px",
+        "offsetY": "16px",
+        "blur": "40px",
+        "spread": "0px"
+      },
+      "$description": "Большая тень для фото"
+    },
+    "cta": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(178, 34, 34, 0.3)",
+        "offsetX": "0px",
+        "offsetY": "8px",
+        "blur": "24px",
+        "spread": "0px"
+      },
+      "$description": "Тень для CTA-кнопок"
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "$type": "dimension",
+      "$value": "375px",
+      "$description": "Мобильные устройства"
+    },
+    "tablet": {
+      "$type": "dimension",
+      "$value": "768px",
+      "$description": "Планшеты"
+    },
+    "desktop": {
+      "$type": "dimension",
+      "$value": "1440px",
+      "$description": "Десктоп"
+    },
+    "container-mobile": {
+      "$type": "dimension",
+      "$value": "100%",
+      "$description": "Контейнер для мобильных"
+    },
+    "container-tablet": {
+      "$type": "dimension",
+      "$value": "720px",
+      "$description": "Контейнер для планшетов"
+    },
+    "container-desktop": {
+      "$type": "dimension",
+      "$value": "1280px",
+      "$description": "Контейнер для десктопа"
+    }
+  },
+  "grid": {
+    "desktop": {
+      "columns": {
+        "$type": "number",
+        "$value": 12
+      },
+      "gutter": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "margin": {
+        "$type": "dimension",
+        "$value": "80px"
+      }
+    },
+    "tablet": {
+      "columns": {
+        "$type": "number",
+        "$value": 8
+      },
+      "gutter": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "margin": {
+        "$type": "dimension",
+        "$value": "24px"
+      }
+    },
+    "mobile": {
+      "columns": {
+        "$type": "number",
+        "$value": 4
+      },
+      "gutter": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "margin": {
+        "$type": "dimension",
+        "$value": "16px"
+      }
+    }
+  }
+}

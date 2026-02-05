@@ -1,0 +1,895 @@
+/* ============================================
+   DESIGN SYSTEM - Зерно Веры
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    /* Colors */
+    --color-bg-primary: #E8DCC8;     /* Светлый бежевый - основной фон */
+    --color-bg-secondary: #D4C4A8;   /* Тёплый бежевый - фон блоков */
+    --color-olive: #7D8B5E;          /* Оливковый - иконки, декор */
+    --color-green-dark: #2D4A3E;     /* Тёмно-зелёный - заголовки */
+    --color-ochre: #C9A227;          /* Охра - акценты */
+    --color-cta: #B22222;            /* Красный - CTA кнопки */
+    --color-white: #FFFFFF;          /* Белый - карточки */
+    --color-text: #2D2D2D;           /* Основной текст */
+    --color-text-light: #666666;     /* Светлый текст */
+
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'PT Serif', serif;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-green-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-olive);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-green-dark);
+    margin-bottom: var(--space-lg);
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+section {
+    padding: var(--space-3xl) 0;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+    display: inline-block;
+    padding: var(--space-md) var(--space-xl);
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--color-cta);
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background-color: #8B1A1A;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-green-dark);
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-ochre);
+    margin: var(--space-lg) auto 0;
+    border-radius: 2px;
+}
+
+/* ============================================
+   1. HERO SECTION
+   ============================================ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(125, 139, 94, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--space-xl);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hero-title {
+    font-size: 72px;
+    margin-bottom: var(--space-lg);
+    color: var(--color-green-dark);
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.5;
+}
+
+/* ============================================
+   2. CAROUSEL SECTION
+   ============================================ */
+
+.carousel {
+    background-color: var(--color-white);
+}
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: var(--color-white);
+    padding: var(--space-xl);
+    font-size: 18px;
+    text-align: center;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-green-dark);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-prev {
+    left: var(--space-lg);
+}
+
+.carousel-btn-next {
+    right: var(--space-lg);
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--space-sm);
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: var(--color-white);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* ============================================
+   3. ABOUT SECTION
+   ============================================ */
+
+.about {
+    background-color: var(--color-bg-secondary);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.about-status {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.status-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    background-color: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.status-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.about-founders {
+    background-color: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.founders-photo {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.founders-text p {
+    margin-bottom: var(--space-md);
+}
+
+.about-mission {
+    background-color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-2xl);
+}
+
+.about-mission h3 {
+    color: var(--color-ochre);
+    margin-bottom: var(--space-lg);
+}
+
+.mission-text {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--color-text);
+    line-height: 1.8;
+}
+
+.about-download {
+    text-align: center;
+}
+
+/* ============================================
+   4. QUOTE SECTION
+   ============================================ */
+
+.quote {
+    background: linear-gradient(135deg, var(--color-olive) 0%, var(--color-green-dark) 100%);
+    color: var(--color-white);
+}
+
+.quote-text {
+    text-align: center;
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    position: relative;
+}
+
+.quote-text::before {
+    content: '"';
+    font-size: 120px;
+    font-family: var(--font-heading);
+    position: absolute;
+    top: -40px;
+    left: 0;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   5. PROGRAMS SECTION
+   ============================================ */
+
+.programs {
+    background-color: var(--color-bg-primary);
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.program-card {
+    background-color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.program-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.program-card h3 {
+    color: var(--color-green-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.program-age {
+    color: var(--color-ochre);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+.programs-note {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.programs-note p {
+    margin-bottom: var(--space-sm);
+}
+
+.programs-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   6. FOR PARENTS SECTION
+   ============================================ */
+
+.for-parents {
+    background-color: var(--color-bg-secondary);
+}
+
+.parents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.parent-card {
+    background-color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.parent-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.parent-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.parent-card h3 {
+    color: var(--color-green-dark);
+    margin-bottom: var(--space-md);
+}
+
+/* ============================================
+   7. CONCERTS SECTION
+   ============================================ */
+
+.concerts {
+    background-color: var(--color-white);
+}
+
+.concerts-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.concerts-intro {
+    font-size: 20px;
+    margin-bottom: var(--space-lg);
+}
+
+.concerts-holidays {
+    background-color: var(--color-bg-primary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-xl);
+}
+
+.concerts-holidays h3 {
+    font-size: 24px;
+    margin-bottom: var(--space-md);
+}
+
+.concerts-holidays ul {
+    list-style: none;
+}
+
+.concerts-holidays li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+}
+
+.concerts-holidays li::before {
+    content: '✝';
+    position: absolute;
+    left: 0;
+    color: var(--color-ochre);
+}
+
+.concerts-image img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   8. TESTIMONIALS SECTION
+   ============================================ */
+
+.testimonials {
+    background-color: var(--color-bg-primary);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.testimonial-quote p {
+    font-style: italic;
+    color: var(--color-text);
+    line-height: 1.8;
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--color-green-dark);
+    margin-bottom: var(--space-xs);
+}
+
+.author-info {
+    font-size: 14px;
+    color: var(--color-text-light);
+}
+
+.testimonials-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    background-color: var(--color-olive);
+    color: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-sm);
+}
+
+.benefit-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   9. CTA SECTION
+   ============================================ */
+
+.cta {
+    background: linear-gradient(135deg, var(--color-green-dark) 0%, var(--color-olive) 100%);
+    color: var(--color-white);
+}
+
+.cta .section-title {
+    color: var(--color-white);
+}
+
+.cta .section-title::after {
+    background-color: var(--color-ochre);
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+}
+
+.cta-card {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-card h3 {
+    color: var(--color-green-dark);
+    margin-bottom: var(--space-md);
+}
+
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.cta-form input[type="text"],
+.cta-form input[type="tel"],
+.cta-form input[type="number"] {
+    padding: var(--space-md);
+    border: 2px solid var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.cta-form input:focus {
+    outline: none;
+    border-color: var(--color-olive);
+}
+
+.donation-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+}
+
+.amount-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.amount-btn input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.amount-btn span {
+    display: block;
+    padding: var(--space-md);
+    text-align: center;
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.amount-btn input:checked + span {
+    background-color: var(--color-olive);
+    border-color: var(--color-olive);
+    color: var(--color-white);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* ============================================
+   10. FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--color-green-dark);
+    color: var(--color-white);
+    padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.footer-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+}
+
+.footer-tagline {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer h4 {
+    color: var(--color-ochre);
+    font-size: 20px;
+    margin-bottom: var(--space-md);
+}
+
+.footer a {
+    color: var(--color-white);
+}
+
+.footer a:hover {
+    color: var(--color-ochre);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .about-grid,
+    .concerts-content,
+    .cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .programs-grid,
+    .parents-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donation-amounts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carousel-slide img {
+        height: 400px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    section {
+        padding: var(--space-2xl) 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .carousel-slide img {
+        height: 300px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+}
