@@ -40,6 +40,76 @@
 }
 
 /* ============================================
+   ORNAMENT DIVIDERS (завитушки со старого сайта)
+   ============================================ */
+
+.ornament-divider {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url(images/line-bg.png) repeat-x center;
+    z-index: 1;
+}
+
+.ornament-line {
+    display: block;
+    width: 29px;
+    height: 10px;
+    image-rendering: crisp-edges;
+    /* Масштабируем оригинальный завиток */
+    transform: scale(3);
+    opacity: 0.7;
+}
+
+/* Растительный орнамент в заголовках секций */
+.section-title {
+    position: relative;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 10px;
+    background: url(images/line.png) no-repeat center;
+    background-size: contain;
+    vertical-align: middle;
+    opacity: 0.5;
+    margin: 0 16px;
+}
+
+.section-title::before {
+    transform: scaleX(-1);
+}
+
+/* Фоновые растительные узоры */
+.hero {
+    background-image:
+        url(images/header-bg.png),
+        linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center bottom, center center;
+    background-size: cover, cover;
+}
+
+.programs {
+    background-image: url(images/content-bg.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-color: var(--color-bg-primary);
+}
+
+.testimonials {
+    background-image: url(images/content-bg-big.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-color: var(--color-bg-primary);
+}
+
+/* ============================================
    RESET & BASE STYLES
    ============================================ */
 
@@ -172,8 +242,8 @@ section {
     position: relative;
 }
 
-.section-title::after {
-    content: '';
+/* Линия-акцент под заголовком (дополняет завитушки) */
+.section-title .accent-line {
     display: block;
     width: 80px;
     height: 4px;
@@ -192,7 +262,6 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
     overflow: hidden;
 }
 
@@ -445,9 +514,7 @@ section {
    5. PROGRAMS SECTION
    ============================================ */
 
-.programs {
-    background-color: var(--color-bg-primary);
-}
+/* .programs background задан выше в секции ORNAMENT */
 
 .programs-grid {
     display: grid;
@@ -601,9 +668,7 @@ section {
    8. TESTIMONIALS SECTION
    ============================================ */
 
-.testimonials {
-    background-color: var(--color-bg-primary);
-}
+/* .testimonials background задан выше в секции ORNAMENT */
 
 .testimonials-grid {
     display: grid;
