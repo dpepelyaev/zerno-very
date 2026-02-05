@@ -1,0 +1,53 @@
+name: Deploy to Beget
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Beget VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.BEGET_HOST }}
+          username: ${{ secrets.BEGET_USER }}
+          password: ${{ secrets.BEGET_PASSWORD }}
+          port: 22
+          script: |
+            # Создать директорию для проекта если не существует
+            mkdir -p /home/dpepelyaev/zerno-very
+
+            # Очистить старые файлы (опционально)
+            # rm -rf /home/dpepelyaev/zerno-very/*
+
+      - name: Upload files via rsync
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude='.git' --exclude='photos' --exclude='README.md' --exclude='*.md'
+          path: .
+          remote_path: /home/dpepelyaev/zerno-very/
+          remote_host: ${{ secrets.BEGET_HOST }}
+          remote_user: ${{ secrets.BEGET_USER }}
+          remote_password: ${{ secrets.BEGET_PASSWORD }}
+
+      - name: Verify deployment
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.BEGET_HOST }}
+          username: ${{ secrets.BEGET_USER }}
+          password: ${{ secrets.BEGET_PASSWORD }}
+          port: 22
+          script: |
+            echo "✅ Deployed files:"
+            ls -lah /home/dpepelyaev/zerno-very/
+            echo ""
+            echo "🌐 Site available at: http://zerno-very.aipepden.store"
