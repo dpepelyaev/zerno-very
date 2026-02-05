@@ -15,21 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check FTP directory structure
-        run: |
-          sudo apt-get install -y lftp > /dev/null 2>&1
-          lftp -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_SERVER }}" -e "
-            set ssl:verify-certificate no
-            set ftp:ssl-allow yes
-            echo '=== FTP ROOT ==='
-            ls
-            echo '=== Listing all directories ==='
-            cls -1 --sort=name
-            echo '=== SERVER_DIR content ==='
-            ls ${{ secrets.FTP_SERVER_DIR }}
-            bye
-          "
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
