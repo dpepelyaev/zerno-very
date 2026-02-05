@@ -196,32 +196,73 @@ function handleDonationSubmit(e) {
 }
 
 // ============================================
-// SCROLL ANIMATIONS
+// SCROLL ANIMATIONS (каскадное появление)
 // ============================================
 
 function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-
-    // Animate cards
-    const cards = document.querySelectorAll('.program-card, .parent-card, .testimonial-card, .status-item');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
     });
+
+    // Карточки с каскадной задержкой (stagger)
+    const cardGroups = [
+        '.program-card',
+        '.parent-card',
+        '.testimonial-card',
+        '.status-item',
+        '.benefit-item',
+        '.cta-card'
+    ];
+
+    cardGroups.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((el, index) => {
+            el.classList.add('animate-on-scroll');
+            el.style.transitionDelay = `${index * 0.08}s`;
+            observer.observe(el);
+        });
+    });
+
+    // Крупные блоки (без задержки)
+    const blocks = document.querySelectorAll(
+        '.about-mission, .about-founders, .about-download, ' +
+        '.concerts-content, .programs-note, .carousel-wrapper'
+    );
+    blocks.forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
+}
+
+// ============================================
+// PARALLAX (лёгкий эффект для hero)
+// ============================================
+
+function initParallax() {
+    const hero = document.querySelector('.hero');
+    if (!hero || window.innerWidth < 768) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                if (scrolled < window.innerHeight * 1.2) {
+                    hero.style.backgroundPositionY = `${scrolled * 0.35}px`;
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // ============================================
@@ -286,10 +327,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initForms();
     initScrollAnimations();
+    initParallax();
     initDonationAmounts();
     initHeaderScroll();
 
-    console.log('Зерно Веры — сайт загружен успешно! ✝️');
+    console.log('Зерно Веры — сайт загружен успешно!');
 });
 
 // ============================================
