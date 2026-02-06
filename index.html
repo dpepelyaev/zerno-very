@@ -13,17 +13,45 @@
 </head>
 <body>
     <!-- ============================================
-         1. HERO — Главный экран
+         1. HERO — Главный экран (двухколоночный)
          ============================================ -->
     <section id="hero" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-ornament hero-ornament-tl"></div>
-        <div class="hero-ornament hero-ornament-br"></div>
-        <div class="container hero-content">
+        <!-- Левая колонка: фото -->
+        <div class="hero-photo">
+            <img src="optimized/IMG_5442.jpg" alt="Семейный центр Зерно Веры">
+            <div class="hero-photo-overlay"></div>
+        </div>
+
+        <!-- Правая колонка: информация -->
+        <div class="hero-info">
+            <span class="hero-badge">При Свято-Екатерининском кафедральном соборе</span>
             <img src="optimized/logo-enhanced.png" alt="Зерно Веры" class="hero-logo">
             <h1 class="hero-title">Поддержите семейные ценности</h1>
             <p class="hero-subtitle">Семейный центр «Зерно веры» с 2007 года помогает семьям расти вместе — детям и родителям</p>
-            <a href="#donate" class="btn btn-primary">Поддержать центр</a>
+
+            <div class="hero-mission">
+                Помочь прорасти зёрнышку веры в сердце каждого ребёнка и взрослого, чтобы оно проросло и приумножилось, став хлебом, питающим семью православную!
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">18+</span>
+                    <span class="stat-label">лет работы</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">семей</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">направлений</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#donate" class="btn btn-red">Поддержать центр</a>
+                <a href="#directions" class="btn btn-green">Направления</a>
+            </div>
         </div>
     </section>
 

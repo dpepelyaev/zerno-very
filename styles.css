@@ -261,72 +261,155 @@ section {
 }
 
 /* ============================================
-   1. HERO SECTION
+   1. HERO SECTION — Двухколоночный
    ============================================ */
 
 .hero {
-    min-height: 85vh;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Левая колонка — фото */
+.hero-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        transparent 60%,
+        var(--c-bg) 100%
+    );
+}
+
+/* Правая колонка — контент */
+.hero-info {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    position: relative;
-    background: url('images/hero-bg.png') center / cover no-repeat;
+    padding: 60px 60px 60px 40px;
+    background: var(--c-bg);
 }
 
-.hero-background {
-    /* Затемнение больше не нужно для светлого фона */
-    display: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    padding: 20px;
-    animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
+.hero-badge {
+    display: inline-block;
+    background: var(--c-green-light);
+    color: var(--c-green);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    width: fit-content;
+    animation: fadeInUp 0.6s var(--ease-out);
 }
 
 .hero-logo {
-    width: 280px;
+    width: 200px;
     height: auto;
-    margin: 0 auto 16px;
+    margin-bottom: 24px;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    animation: fadeInUp 0.6s var(--ease-out) 0.1s both;
 }
 
 .hero-title {
-    color: var(--c-green-dark); /* Тёмный текст для светлого фона */
+    color: var(--c-green-dark);
     margin-bottom: 16px;
-    text-shadow: none;
-    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+    font-size: clamp(28px, 3.5vw, 44px);
+    animation: fadeInUp 0.6s var(--ease-out) 0.2s both;
 }
 
 .hero-subtitle {
-    font-size: clamp(18px, 2vw, 22px);
-    color: var(--c-text); /* Тёмный текст */
+    font-size: 17px;
+    color: var(--c-text-muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.6s var(--ease-out) 0.3s both;
+}
+
+/* Блок миссии */
+.hero-mission {
+    background: linear-gradient(135deg, var(--c-green-light) 0%, var(--c-gold-light) 100%);
+    padding: 20px 24px;
+    border-radius: var(--r-lg);
+    margin-bottom: 28px;
+    font-style: italic;
+    color: var(--c-green-dark);
+    font-size: 15px;
+    line-height: 1.7;
+    border-left: 4px solid var(--c-gold);
+    animation: fadeInUp 0.6s var(--ease-out) 0.4s both;
+}
+
+/* Счётчики */
+.hero-stats {
+    display: flex;
+    gap: 24px;
     margin-bottom: 32px;
-    line-height: 1.6;
-    font-weight: 500;
+    animation: fadeInUp 0.6s var(--ease-out) 0.5s both;
 }
 
-.hero .btn-primary {
-    animation: pulse 2.5s ease-in-out infinite;
-    font-size: 18px;
-    padding: 16px 48px;
-    box-shadow: 0 8px 20px rgba(46, 139, 87, 0.25);
+.stat-item {
+    text-align: center;
+    background: var(--c-white);
+    padding: 12px 20px;
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-xs);
 }
 
-/* Волна внизу hero */
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath d='M0 40 C480 60 960 20 1440 40 L1440 60 L0 60Z' fill='%23FAF7F2'/%3E%3C/svg%3E") no-repeat;
-    background-size: cover;
-    z-index: 3;
+.stat-number {
+    display: block;
+    font-family: var(--f-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--c-green);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--c-text-muted);
+    margin-top: 4px;
+}
+
+/* Кнопки Hero */
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s var(--ease-out) 0.6s both;
+}
+
+.btn-red {
+    background: #B22222;
+    color: var(--c-white);
+    box-shadow: 0 4px 16px rgba(178, 34, 34, 0.3);
+}
+
+.btn-red:hover {
+    background: #8B1A1A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(178, 34, 34, 0.4);
+}
+
+.btn-green {
+    background: transparent;
+    color: var(--c-green);
+    border: 2px solid var(--c-green);
+}
+
+.btn-green:hover {
+    background: var(--c-green-light);
 }
 
 /* ============================================
@@ -828,11 +911,10 @@ section {
 }
 
 .footer-logo {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+    width: 80px;
+    height: auto;
     margin-bottom: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    filter: brightness(1.2);
 }
 
 .footer-tagline {
@@ -894,18 +976,42 @@ section {
         padding: 40px 0;
     }
 
+    /* Hero: одна колонка на мобильных */
     .hero {
-        min-height: 80vh;
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-photo {
+        height: 40vh;
+    }
+
+    .hero-photo-overlay {
+        background: linear-gradient(
+            to bottom,
+            transparent 60%,
+            var(--c-bg) 100%
+        );
+    }
+
+    .hero-info {
+        padding: 30px 20px;
     }
 
     .hero-logo {
-        width: 90px;
-        height: 90px;
+        width: 160px;
     }
 
-    .hero .btn-primary {
-        font-size: 16px;
-        padding: 14px 32px;
+    .hero-stats {
+        gap: 12px;
+    }
+
+    .stat-item {
+        padding: 10px 14px;
+    }
+
+    .stat-number {
+        font-size: 26px;
     }
 
     .about-grid,
@@ -926,11 +1032,6 @@ section {
         gap: 24px;
     }
 
-    .hero::after {
-        height: 40px;
-    }
-    
-    .hero-ornament,
     .section-ornament {
         display: none;
     }
@@ -942,8 +1043,25 @@ section {
     }
 
     .hero-logo {
-        width: 80px;
-        height: 80px;
+        width: 140px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-mission {
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
     }
 
     .directions-grid {
