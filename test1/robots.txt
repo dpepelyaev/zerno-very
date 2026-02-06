@@ -1,0 +1,12 @@
+# robots.txt для Зерно Веры
+User-agent: *
+Allow: /
+
+# Запретить индексацию служебных файлов
+Disallow: /*.py$
+Disallow: /*.sh$
+Disallow: /.git/
+Disallow: /.github/
+
+# Карта сайта
+Sitemap: https://зерно-веры.рф/sitemap.xml
