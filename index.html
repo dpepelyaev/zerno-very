@@ -3,22 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Семейный центр «Зерно Веры» при Свято-Екатерининском соборе. Православное воспитание детей, программы для семей, духовно-нравственное развитие.">
+    <meta name="description" content="Семейный центр «Зерно Веры» при Свято-Екатерининском соборе. Православное воспитание детей, программы для семей, духовно-нравственное развитие. Поддержите центр пожертвованием.">
     <title>Зерно Веры — Православный семейный центр в Краснодаре</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Зерно Веры — Православный семейный центр">
+    <meta property="og:description" content="18+ лет помогаем семьям расти вместе — детям и родителям. Поддержите наш центр.">
+    <meta property="og:image" content="images/social-card.png">
+    <meta property="og:type" content="website">
 </head>
 <body>
+    <!-- Sticky Header -->
+    <header id="site-header" class="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="header-logo-link">
+                <img src="logo.min.png" alt="Зерно Веры" class="header-logo">
+                <span class="header-brand">Зерно Веры</span>
+            </a>
+            <nav class="header-nav" id="navMenu">
+                <a href="#about">О центре</a>
+                <a href="#programs">Программы</a>
+                <a href="#testimonials">Отзывы</a>
+                <a href="#footer">Контакты</a>
+            </nav>
+            <a href="#cta" class="btn btn-primary btn-header-donate">Поддержать</a>
+            <button class="burger" id="navToggle" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
     <!-- 1. Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-background"></div>
         <div class="container hero-content">
-            <img src="optimized/logo-ru.jpg" alt="Зерно Веры" class="hero-logo">
             <h1 class="hero-title">Поддержите семейные ценности</h1>
             <p class="hero-subtitle">Семейный центр «Зерно веры» с 2007 года помогает семьям расти вместе — детям и родителям</p>
-            <a href="#cta" class="btn btn-primary">Поддержать центр</a>
+            <div class="hero-buttons">
+                <a href="#cta" class="btn btn-primary btn-lg">Поддержать центр</a>
+                <a href="#about" class="btn btn-ghost">Узнать больше</a>
+            </div>
         </div>
     </section>
 
@@ -60,34 +88,58 @@
                         <p class="carousel-caption">Внимание и усидчивость</p>
                     </div>
                 </div>
-                <button class="carousel-btn carousel-btn-prev" aria-label="Предыдущее фото">‹</button>
-                <button class="carousel-btn carousel-btn-next" aria-label="Следующее фото">›</button>
+                <button class="carousel-btn carousel-btn-prev" aria-label="Предыдущее фото">&#8249;</button>
+                <button class="carousel-btn carousel-btn-next" aria-label="Следующее фото">&#8250;</button>
                 <div class="carousel-dots"></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. About Section -->
-    <section id="about" class="about">
+    <!-- 2.5 Mini-CTA после карусели (2-я точка пожертвования) -->
+    <section class="mini-cta">
         <div class="container">
-            <h2 class="section-title">О центре</h2>
+            <div class="mini-cta-inner">
+                <div class="mini-cta-text">
+                    <p class="mini-cta-heading">Помогите нам продолжать эту работу</p>
+                    <p class="mini-cta-sub">Ваше пожертвование — это новые занятия, праздники и поддержка семей</p>
+                </div>
+                <a href="#cta" class="btn btn-primary">Поддержать центр</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Section -->
+    <section id="about" class="about animate-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">О центре</h2>
+                <img src="images/ornament-title.svg" alt="" class="ornament-title" aria-hidden="true">
+            </div>
 
             <div class="about-grid">
                 <div class="about-status">
                     <div class="status-item">
-                        <span class="status-icon">🏛️</span>
+                        <span class="status-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+                        </span>
                         <p>При Свято-Екатерининском кафедральном соборе</p>
                     </div>
                     <div class="status-item">
-                        <span class="status-icon">✝️</span>
+                        <span class="status-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M12 8a4 4 0 100 8 4 4 0 000-8z"/><path d="M12 2l1 2h-2l1-2z" fill="currentColor"/></svg>
+                        </span>
                         <p>По благословению митрополита Екатеринодарского и Кубанского Василия</p>
                     </div>
                     <div class="status-item">
-                        <span class="status-icon">📅</span>
+                        <span class="status-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </span>
                         <p>Работаем с 2007 года — более 18 лет</p>
                     </div>
                     <div class="status-item">
-                        <span class="status-icon">📋</span>
+                        <span class="status-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </span>
                         <p>АНО «Семейный центр «Зерно веры»</p>
                     </div>
                 </div>
@@ -112,6 +164,34 @@
         </div>
     </section>
 
+    <!-- Impact Counters -->
+    <section class="impact">
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="impact-number" data-target="18">0</span>
+                    <span class="impact-suffix">+</span>
+                    <p class="impact-label">лет помогаем семьям</p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number" data-target="10">0</span>
+                    <span class="impact-suffix">+</span>
+                    <p class="impact-label">образовательных программ</p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number" data-target="14">0</span>
+                    <span class="impact-suffix"></span>
+                    <p class="impact-label">творческих студий</p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-number" data-target="1500">0</span>
+                    <span class="impact-suffix">+</span>
+                    <p class="impact-label">семей прошли через центр</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 4. Quote Section -->
     <section id="quote" class="quote">
         <div class="container">
@@ -122,62 +202,81 @@
     </section>
 
     <!-- 5. Programs Section -->
-    <section id="programs" class="programs">
+    <section id="programs" class="programs animate-section">
         <div class="container">
-            <h2 class="section-title">Программы для детей</h2>
+            <div class="section-header">
+                <h2 class="section-title">Программы для детей</h2>
+                <img src="images/ornament-title.svg" alt="" class="ornament-title" aria-hidden="true">
+            </div>
 
             <div class="programs-grid">
                 <div class="program-card">
-                    <span class="program-icon">👶</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="12" cy="8" r="2" fill="currentColor" opacity="0.2"/></svg>
+                    </span>
                     <h3>Крошки</h3>
                     <p class="program-age">1,5–4 года</p>
                     <p>Растём в сотворчестве и сказке</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">🎵</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    </span>
                     <h3>Осьминотки</h3>
                     <p class="program-age">4+ года</p>
                     <p>Речь, музыкальный слух, координация через игру</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">📚</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                    </span>
                     <h3>Добрые ступеньки к школе</h3>
                     <p class="program-age">4–6 лет</p>
                     <p>РКШ — интеллект + духовность</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">🏖️</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c6-3 10-8 10-14H2c0 6 4 11 10 14z"/><circle cx="12" cy="11" r="3"/></svg>
+                    </span>
                     <h3>Песочная страна</h3>
                     <p class="program-age">2–12 лет</p>
                     <p>Эмоциональный интеллект через игру с песком</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">🎭</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </span>
                     <h3>Музыкальные спектакли</h3>
                     <p class="program-age">Все возрасты</p>
                     <p>Искусство и красота</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">🎤</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                    </span>
                     <h3>Вокальная студия</h3>
                     <p class="program-age">Все возрасты</p>
                     <p>Радость, чуткость, уверенность в себе</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">✍️</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
+                    </span>
                     <h3>Каллиграфия</h3>
                     <p class="program-age">Школьники</p>
                     <p>Внимание, усидчивость, красота письма</p>
                 </div>
 
                 <div class="program-card">
-                    <span class="program-icon">🎓</span>
+                    <span class="program-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2.5 3 4 6 4s6-1.5 6-4v-5"/></svg>
+                    </span>
                     <h3>Семейная школа</h3>
                     <p class="program-age">7–16 лет (1–9 кл.)</p>
                     <p>Знания + духовно-нравственное воспитание</p>
@@ -192,31 +291,42 @@
     </section>
 
     <!-- 6. For Parents Section -->
-    <section id="for-parents" class="for-parents">
+    <section id="for-parents" class="for-parents animate-section">
         <div class="container">
-            <h2 class="section-title">Для родителей</h2>
+            <div class="section-header">
+                <h2 class="section-title">Для родителей</h2>
+                <img src="images/ornament-title.svg" alt="" class="ornament-title" aria-hidden="true">
+            </div>
 
             <div class="parents-grid">
                 <div class="parent-card">
-                    <span class="parent-icon">💬</span>
+                    <span class="parent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </span>
                     <h3>Семейный психолог</h3>
                     <p>Говорить на одном языке с детьми, сохранить любовь в браке, преодолеть сложности</p>
                 </div>
 
                 <div class="parent-card">
-                    <span class="parent-icon">🎭</span>
+                    <span class="parent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </span>
                     <h3>Совместные проекты</h3>
                     <p>Музыкальные спектакли и праздники, где участвует вся семья — дети и родители вместе</p>
                 </div>
 
                 <div class="parent-card">
-                    <span class="parent-icon">🤝</span>
+                    <span class="parent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </span>
                     <h3>Поддержка</h3>
                     <p>Пространство, где можно быть уставшим, сомневающимся, ищущим — и найти единомышленников</p>
                 </div>
 
                 <div class="parent-card">
-                    <span class="parent-icon">👥</span>
+                    <span class="parent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </span>
                     <h3>Клуб православных родителей</h3>
                     <p>Беседы о семье, браке, воспитании детей, духовном росте и личностном развитии</p>
                 </div>
@@ -225,9 +335,12 @@
     </section>
 
     <!-- 7. Concerts Section -->
-    <section id="concerts" class="concerts">
+    <section id="concerts" class="concerts animate-section">
         <div class="container">
-            <h2 class="section-title">Концертная деятельность</h2>
+            <div class="section-header">
+                <h2 class="section-title">Концертная деятельность</h2>
+                <img src="images/ornament-title.svg" alt="" class="ornament-title" aria-hidden="true">
+            </div>
 
             <div class="concerts-content">
                 <div class="concerts-text">
@@ -250,9 +363,12 @@
     </section>
 
     <!-- 8. Testimonials Section -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="testimonials animate-section">
         <div class="container">
-            <h2 class="section-title">Почему выбирают «Зерно веры»</h2>
+            <div class="section-header">
+                <h2 class="section-title">Почему выбирают «Зерно веры»</h2>
+                <img src="images/ornament-title.svg" alt="" class="ornament-title" aria-hidden="true">
+            </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -298,17 +414,34 @@
 
             <div class="testimonials-benefits">
                 <div class="benefit-item">
-                    <span class="benefit-icon">❤️</span>
+                    <span class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </span>
                     <p>Дети учатся главному — любить, трудиться, отвечать за поступки</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">🤝</span>
+                    <span class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </span>
                     <p>Родители находят поддержку и единомышленников</p>
                 </div>
                 <div class="benefit-item">
-                    <span class="benefit-icon">🏡</span>
+                    <span class="benefit-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+                    </span>
                     <p>Семья становится крепче через общие традиции и ценности</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8.5 CTA-баннер после отзывов (3-я точка пожертвования) -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-banner-inner">
+                <h2>Станьте частью нашей истории</h2>
+                <p>18 лет мы помогаем семьям расти вместе. Каждое пожертвование — это ещё один ребёнок, который узнает, что такое любовь, традиции и настоящая семья.</p>
+                <a href="#cta" class="btn btn-primary btn-lg">Поддержать сейчас</a>
             </div>
         </div>
     </section>
@@ -317,6 +450,26 @@
     <section id="cta" class="cta">
         <div class="container">
             <h2 class="section-title">Просим поддержать</h2>
+
+            <!-- Блок доверия -->
+            <div class="trust-badges">
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>При кафедральном соборе</span>
+                </div>
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                    <span>ИНН: 2310223402</span>
+                </div>
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    <span>ОГРН: 1212300013419</span>
+                </div>
+                <div class="trust-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <span>С 2007 года</span>
+                </div>
+            </div>
 
             <div class="cta-grid">
                 <div class="cta-card">
@@ -330,24 +483,36 @@
 
                 <div class="cta-card">
                     <h3>Или выберите сумму</h3>
-                    <p>Поддержите проекты центра ежемесячным пожертвованием</p>
+                    <p>Поддержите проекты центра пожертвованием</p>
                     <form class="cta-form donation-form">
                         <div class="donation-amounts">
                             <label class="amount-btn">
                                 <input type="radio" name="amount" value="100">
-                                <span>100 ₽</span>
+                                <span>
+                                    <strong>100 &#8381;</strong>
+                                    <small>рабочая тетрадь для ребёнка</small>
+                                </span>
                             </label>
                             <label class="amount-btn">
                                 <input type="radio" name="amount" value="300">
-                                <span>300 ₽</span>
+                                <span>
+                                    <strong>300 &#8381;</strong>
+                                    <small>краски и кисти для студии</small>
+                                </span>
                             </label>
                             <label class="amount-btn">
                                 <input type="radio" name="amount" value="500" checked>
-                                <span>500 ₽</span>
+                                <span>
+                                    <strong>500 &#8381;</strong>
+                                    <small>неделя занятий для ребёнка</small>
+                                </span>
                             </label>
                             <label class="amount-btn">
                                 <input type="radio" name="amount" value="1000">
-                                <span>1000 ₽</span>
+                                <span>
+                                    <strong>1000 &#8381;</strong>
+                                    <small>месяц поддержки семьи</small>
+                                </span>
                             </label>
                         </div>
                         <input type="number" name="custom-amount" placeholder="Или введите свою сумму" min="1">
@@ -355,10 +520,19 @@
                             <input type="checkbox" name="recurring">
                             <span>Ежемесячное списание</span>
                         </label>
-                        <button type="submit" class="btn btn-primary">Поддержать онлайн</button>
+                        <label class="checkbox-label checkbox-legal">
+                            <input type="checkbox" name="agree-oferta" required>
+                            <span>Согласен с <a href="oferta.html" target="_blank">договором пожертвования (офертой)</a></span>
+                        </label>
+                        <label class="checkbox-label checkbox-legal">
+                            <input type="checkbox" name="agree-privacy" required>
+                            <span>Согласен на <a href="privacy.html" target="_blank">обработку персональных данных</a></span>
+                        </label>
+                        <p class="form-error" id="donationError" style="display: none; color: #c0392b; font-size: 13px; margin: 0;">Необходимо принять условия оферты и дать согласие на обработку персональных данных</p>
+                        <button type="submit" class="btn btn-primary btn-lg">Поддержать онлайн</button>
                     </form>
                     <div style="text-align: center; margin-top: 20px;">
-                        <a href="Договор_пожертвования_на_Зерно_Веры.docx" download style="font-size: 13px; color: #7B8B5E;">📄 Скачать договор (для юр. лиц)</a>
+                        <a href="Договор_пожертвования_на_Зерно_Веры.docx" download style="font-size: 13px; color: #7B8B5E;">Скачать договор (для юр. лиц)</a>
                     </div>
                 </div>
             </div>
@@ -370,40 +544,66 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <img src="optimized/logo-ru.jpg" alt="Зерно Веры" class="footer-logo">
+                    <img src="logo.min.png" alt="Зерно Веры" class="footer-logo">
                     <p class="footer-tagline">Православный семейный центр при Свято-Екатерининском соборе</p>
                 </div>
 
                 <div class="footer-section">
                     <h4>Контакты</h4>
-                    <p>📍 Краснодар, ул. Коммунаров, 52<br>
+                    <p>Краснодар, ул. Коммунаров, 52<br>
                     Административное здание, 3 этаж<br>
                     (за Екатерининским кафедральным собором)</p>
-                    <p>📞 <a href="tel:+79898200400">8-98-98-200-400</a></p>
+                    <p><a href="tel:+79898200400">8-98-98-200-400</a></p>
+                    <p><a href="mailto:zernovery@mail.ru">zernovery@mail.ru</a></p>
                 </div>
 
                 <div class="footer-section">
                     <h4>Мы в сети</h4>
-                    <p>📱 <a href="https://t.me/zerno_very" target="_blank">Telegram</a></p>
-                    <p>💬 <a href="https://vk.com/zerno_very" target="_blank">VK</a></p>
-                    <p>📷 <a href="https://instagram.com/zernovery" target="_blank">Instagram</a></p>
-                    <p>🌐 <a href="https://zernovery.ru" target="_blank">zernovery.ru</a></p>
+                    <div class="social-links">
+                        <a href="https://t.me/zerno_very" target="_blank" class="social-link" aria-label="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                            Telegram
+                        </a>
+                        <a href="https://vk.com/zerno_very" target="_blank" class="social-link" aria-label="VK">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.57 4 8.097c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.454 2.27 4.605 2.85 4.605.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.253-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.762-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/></svg>
+                            VK
+                        </a>
+                        <a href="https://instagram.com/zernovery" target="_blank" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                            Instagram
+                        </a>
+                    </div>
+                    <p style="margin-top: 12px;"><a href="https://zernovery.ru" target="_blank">zernovery.ru</a></p>
                 </div>
 
                 <div class="footer-section">
                     <h4>Юридическая информация</h4>
-                    <p style="font-size: 12px; line-height: 1.4;">Автономная некоммерческая организация по поддержке семьи, отцовства, материнства, родительства и детства «Православный семейный центр «Зерно веры»</p>
+                    <p style="font-size: 12px; line-height: 1.4;">Автономная некоммерческая организация по поддержке семьи, супружества, отцовства, материнства и детства «Семейный центр «Зерно Веры»</p>
                     <p>ИНН: 2310223402</p>
                     <p>ОГРН: 1212300013419</p>
-                    <p><a href="РЕКВИЗИТЫ АНО Семейный центр ЗЕРНО ВЕРЫ.docx" download style="font-size: 13px;">📄 Скачать полные реквизиты</a></p>
+                    <p>КПП: 231001001</p>
+                    <p style="margin-top: 8px; font-size: 12px; line-height: 1.4;">р/с 40703810100000000214<br>
+                    КБ «КУБАНЬ КРЕДИТ» ООО<br>
+                    БИК 040349722<br>
+                    к/с 30101810200000000722</p>
+                    <p style="margin-top: 8px; font-size: 12px;">Юр. адрес: 350000, г. Краснодар, ул. Коммунаров, 52</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2007–2026 Семейный центр «Зерно веры». Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="oferta.html">Публичная оферта</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Sticky bottom bar (мобильные) -->
+    <div class="sticky-bottom-bar" id="stickyBottom">
+        <a href="#cta" class="btn btn-primary btn-sticky">Поддержать центр</a>
+    </div>
 
     <script src="script.js"></script>
 </body>
