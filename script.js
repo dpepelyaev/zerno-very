@@ -1,126 +1,20 @@
 // ============================================
-// CAROUSEL FUNCTIONALITY
+// ЗЕРНО ВЕРЫ — Основной скрипт
+// Версия 2.0 — компактный сайт без карусели
 // ============================================
 
-class Carousel {
-    constructor(carouselElement) {
-        this.carousel = carouselElement;
-        this.track = this.carousel.querySelector('.carousel-track');
-        this.slides = Array.from(this.track.children);
-        this.prevButton = this.carousel.querySelector('.carousel-btn-prev');
-        this.nextButton = this.carousel.querySelector('.carousel-btn-next');
-        this.dotsContainer = this.carousel.querySelector('.carousel-dots');
-
-        this.currentIndex = 0;
-        this.autoplayInterval = null;
-
-        this.init();
-    }
-
-    init() {
-        // Create dots
-        this.createDots();
-
-        // Add event listeners
-        this.prevButton.addEventListener('click', () => this.showPrevSlide());
-        this.nextButton.addEventListener('click', () => this.showNextSlide());
-
-        // Auto-play
-        this.startAutoplay();
-
-        // Pause on hover
-        this.carousel.addEventListener('mouseenter', () => this.stopAutoplay());
-        this.carousel.addEventListener('mouseleave', () => this.startAutoplay());
-
-        // Touch support for mobile
-        this.addTouchSupport();
-    }
-
-    createDots() {
-        this.slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => this.goToSlide(index));
-            this.dotsContainer.appendChild(dot);
-        });
-        this.dots = Array.from(this.dotsContainer.children);
-    }
-
-    showSlide(index) {
-        // Update current index
-        this.currentIndex = index;
-
-        // Move track
-        const slideWidth = this.slides[0].getBoundingClientRect().width;
-        this.track.style.transform = `translateX(-${slideWidth * index}px)`;
-
-        // Update dots
-        this.dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    }
-
-    showNextSlide() {
-        const nextIndex = (this.currentIndex + 1) % this.slides.length;
-        this.showSlide(nextIndex);
-    }
-
-    showPrevSlide() {
-        const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-        this.showSlide(prevIndex);
-    }
-
-    goToSlide(index) {
-        this.showSlide(index);
-    }
-
-    startAutoplay() {
-        this.autoplayInterval = setInterval(() => this.showNextSlide(), 5000);
-    }
-
-    stopAutoplay() {
-        if (this.autoplayInterval) {
-            clearInterval(this.autoplayInterval);
-            this.autoplayInterval = null;
-        }
-    }
-
-    addTouchSupport() {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        this.carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        this.carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe();
-        });
-
-        const handleSwipe = () => {
-            if (touchEndX < touchStartX - 50) {
-                this.showNextSlide();
-            }
-            if (touchEndX > touchStartX + 50) {
-                this.showPrevSlide();
-            }
-        };
-
-        this.handleSwipe = handleSwipe;
-    }
-}
-
 // ============================================
-// SMOOTH SCROLL
+// SMOOTH SCROLL — плавная прокрутка к якорям
 // ============================================
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -132,71 +26,164 @@ function initSmoothScroll() {
 }
 
 // ============================================
-// FORM HANDLING
+// DONATION FORM — форма пожертвования
 // ============================================
 
-function initForms() {
-    // Tour form
-    const tourForm = document.querySelector('.cta-card:first-child .cta-form');
-    if (tourForm) {
-        tourForm.addEventListener('submit', handleTourSubmit);
+function initDonationForm() {
+    const form = document.getElementById('donationForm');
+    if (!form) return;
+
+    const amountButtons = form.querySelectorAll('.amount-btn input[type="radio"]');
+    const customAmountInput = form.querySelector('input[name="custom-amount"]');
+    const ofertaCheckbox = form.querySelector('input[name="agree-oferta"]');
+    const privacyCheckbox = form.querySelector('input[name="agree-privacy"]');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // Сброс radio при вводе своей суммы
+    if (customAmountInput) {
+        customAmountInput.addEventListener('input', () => {
+            amountButtons.forEach(radio => {
+                radio.checked = false;
+            });
+        });
     }
 
-    // Donation form
-    const donationForm = document.querySelector('.donation-form');
-    if (donationForm) {
-        donationForm.addEventListener('submit', handleDonationSubmit);
+    // Сброс своей суммы при выборе готовой
+    amountButtons.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (customAmountInput) {
+                customAmountInput.value = '';
+            }
+        });
+    });
+
+    // Валидация и отправка формы
+    form.addEventListener('submit', handleDonationSubmit);
+
+    // Функция валидации
+    function validateForm() {
+        const errors = [];
+
+        // Проверка суммы
+        const selectedRadio = form.querySelector('input[name="amount"]:checked');
+        const customValue = customAmountInput?.value.trim();
+        
+        if (!selectedRadio && !customValue) {
+            errors.push('Выберите или введите сумму пожертвования');
+        }
+
+        if (customValue && (isNaN(customValue) || parseInt(customValue) < 1)) {
+            errors.push('Введите корректную сумму (минимум 1 рубль)');
+        }
+
+        // Проверка согласий
+        if (!ofertaCheckbox?.checked) {
+            errors.push('Необходимо согласие с договором пожертвования');
+        }
+
+        if (!privacyCheckbox?.checked) {
+            errors.push('Необходимо согласие на обработку персональных данных');
+        }
+
+        return errors;
     }
-}
 
-function handleTourSubmit(e) {
-    e.preventDefault();
+    // Подсветка ошибок в чекбоксах
+    function highlightErrors(errors) {
+        // Сброс предыдущих ошибок
+        form.querySelectorAll('.checkbox-error').forEach(el => {
+            el.classList.remove('checkbox-error');
+        });
 
-    const formData = new FormData(e.target);
-    const data = {
-        name: formData.get('name'),
-        phone: formData.get('phone'),
-        age: formData.get('age')
-    };
+        if (errors.includes('Необходимо согласие с договором пожертвования')) {
+            ofertaCheckbox?.closest('.checkbox-label')?.classList.add('checkbox-error');
+        }
 
-    // Here you would normally send data to a server
-    console.log('Tour request:', data);
+        if (errors.includes('Необходимо согласие на обработку персональных данных')) {
+            privacyCheckbox?.closest('.checkbox-label')?.classList.add('checkbox-error');
+        }
+    }
 
-    // Show success message
-    alert(`Спасибо, ${data.name}! Мы свяжемся с вами в ближайшее время.`);
+    // Обработчик отправки
+    function handleDonationSubmit(e) {
+        e.preventDefault();
 
-    // Reset form
-    e.target.reset();
-}
+        const errors = validateForm();
 
-function handleDonationSubmit(e) {
-    e.preventDefault();
+        if (errors.length > 0) {
+            highlightErrors(errors);
+            showFormMessage(errors.join('\n'), 'error');
+            return;
+        }
 
-    const formData = new FormData(e.target);
-    const selectedAmount = formData.get('amount');
-    const customAmount = formData.get('custom-amount');
-    const recurring = formData.get('recurring');
+        // Собираем данные
+        const formData = new FormData(form);
+        const selectedAmount = formData.get('amount');
+        const customAmount = formData.get('custom-amount');
+        const recurring = formData.get('recurring') === 'on';
+        const amount = customAmount || selectedAmount;
 
-    const amount = customAmount || selectedAmount;
+        const data = {
+            amount: parseInt(amount),
+            recurring: recurring,
+            timestamp: new Date().toISOString()
+        };
 
-    const data = {
-        amount: amount,
-        recurring: recurring === 'on'
-    };
+        console.log('Пожертвование:', data);
 
-    // Here you would normally integrate with payment system (ЮMoney, etc.)
-    console.log('Donation:', data);
+        // Пока платёжная система не подключена — показываем сообщение
+        const recurringText = recurring ? 'ежемесячное пожертвование' : 'единоразовое пожертвование';
+        showFormMessage(
+            `Спасибо за ваше ${recurringText} на сумму ${amount} ₽!\n\n` +
+            `Онлайн-оплата пока в разработке.\n` +
+            `Вы можете перевести средства по реквизитам выше.`,
+            'success'
+        );
 
-    // Show success message
-    const recurringText = data.recurring ? 'ежемесячное пожертвование' : 'пожертвование';
-    alert(`Спасибо за ваше ${recurringText} в размере ${amount} рублей!`);
-
-    // In production, redirect to payment gateway
-    // window.location.href = '/payment?amount=' + amount + '&recurring=' + data.recurring;
+        // В будущем здесь будет редирект на платёжную систему:
+        // window.location.href = `https://payment.example.com/pay?amount=${amount}&recurring=${recurring}`;
+    }
 }
 
 // ============================================
-// SCROLL ANIMATIONS (каскадное появление)
+// FORM MESSAGES — уведомления формы
+// ============================================
+
+function showFormMessage(message, type = 'info') {
+    // Удаляем предыдущее сообщение
+    const existingMessage = document.querySelector('.form-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+
+    // Создаём новое
+    const messageEl = document.createElement('div');
+    messageEl.className = `form-message form-message-${type}`;
+    messageEl.innerHTML = `
+        <span class="form-message-icon">${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
+        <span class="form-message-text">${message.replace(/\n/g, '<br>')}</span>
+        <button class="form-message-close" onclick="this.parentElement.remove()">×</button>
+    `;
+
+    // Вставляем после формы
+    const form = document.getElementById('donationForm');
+    if (form) {
+        form.insertAdjacentElement('afterend', messageEl);
+        
+        // Прокрутка к сообщению
+        messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Автоскрытие через 10 секунд
+        setTimeout(() => {
+            if (messageEl.parentElement) {
+                messageEl.remove();
+            }
+        }, 10000);
+    }
+}
+
+// ============================================
+// SCROLL ANIMATIONS — анимации при прокрутке
 // ============================================
 
 function initScrollAnimations() {
@@ -212,29 +199,25 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -60px 0px'
     });
 
-    // Карточки с каскадной задержкой (stagger)
-    const cardGroups = [
-        '.program-card',
-        '.parent-card',
-        '.testimonial-card',
-        '.status-item',
-        '.benefit-item',
-        '.cta-card'
-    ];
-
-    cardGroups.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach((el, index) => {
-            el.classList.add('animate-on-scroll');
-            el.style.transitionDelay = `${index * 0.08}s`;
-            observer.observe(el);
-        });
+    // Карточки направлений с каскадной задержкой
+    const directionCards = document.querySelectorAll('.direction-card');
+    directionCards.forEach((card, index) => {
+        card.classList.add('animate-on-scroll');
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
     });
 
-    // Крупные блоки (без задержки)
+    // Элементы статуса
+    const statusItems = document.querySelectorAll('.status-item');
+    statusItems.forEach((item, index) => {
+        item.classList.add('animate-on-scroll');
+        item.style.transitionDelay = `${index * 0.15}s`;
+        observer.observe(item);
+    });
+
+    // Крупные блоки
     const blocks = document.querySelectorAll(
-        '.about-mission, .about-founders, .about-download, ' +
-        '.concerts-content, .programs-note, .carousel-wrapper'
+        '.about-mission, .about-founders, .donate-requisites, .donate-form-wrapper'
     );
     blocks.forEach(el => {
         el.classList.add('animate-on-scroll');
@@ -243,12 +226,15 @@ function initScrollAnimations() {
 }
 
 // ============================================
-// PARALLAX (лёгкий эффект для hero)
+// PARALLAX — лёгкий эффект для hero
 // ============================================
 
 function initParallax() {
     const hero = document.querySelector('.hero');
     if (!hero || window.innerWidth < 768) return;
+
+    // Отключаем parallax если prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     let ticking = false;
     window.addEventListener('scroll', () => {
@@ -266,109 +252,81 @@ function initParallax() {
 }
 
 // ============================================
-// DONATION AMOUNT SELECTION
-// ============================================
-
-function initDonationAmounts() {
-    const amountButtons = document.querySelectorAll('.amount-btn');
-    const customAmountInput = document.querySelector('input[name="custom-amount"]');
-
-    if (!amountButtons.length || !customAmountInput) return;
-
-    // Clear radio selection when custom amount is entered
-    customAmountInput.addEventListener('input', () => {
-        amountButtons.forEach(btn => {
-            const radio = btn.querySelector('input[type="radio"]');
-            if (radio) radio.checked = false;
-        });
-    });
-
-    // Clear custom amount when radio is selected
-    amountButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            customAmountInput.value = '';
-        });
-    });
-}
-
-// ============================================
-// HEADER SCROLL EFFECT
+// HEADER SCROLL EFFECT — тень при скролле
 // ============================================
 
 function initHeaderScroll() {
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        // Add shadow to header when scrolled
-        if (currentScroll > 100) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
-
-        lastScroll = currentScroll;
-    });
+        const scrolled = window.pageYOffset > 100;
+        document.body.classList.toggle('scrolled', scrolled);
+    }, { passive: true });
 }
 
 // ============================================
-// INITIALIZE
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize carousel
-    const carouselElement = document.querySelector('.carousel');
-    if (carouselElement) {
-        new Carousel(carouselElement);
-    }
-
-    // Initialize other features
-    initSmoothScroll();
-    initForms();
-    initScrollAnimations();
-    initParallax();
-    initDonationAmounts();
-    initHeaderScroll();
-
-    console.log('Зерно Веры — сайт загружен успешно!');
-});
-
-// ============================================
-// UTILITY: Phone number formatting
+// PHONE NUMBER FORMATTING — форматирование телефона
 // ============================================
 
 function formatPhoneNumber(input) {
-    // Remove all non-digits
+    // Убираем всё кроме цифр
     let value = input.value.replace(/\D/g, '');
 
-    // Format as +7 (XXX) XXX-XX-XX
+    // Приводим к формату +7
     if (value.length > 0) {
         if (value[0] === '8') value = '7' + value.slice(1);
         if (value[0] !== '7') value = '7' + value;
     }
 
+    // Форматируем как +7 (XXX) XXX-XX-XX
     let formatted = '+7';
     if (value.length > 1) {
         formatted += ' (' + value.slice(1, 4);
     }
-    if (value.length >= 5) {
+    if (value.length >= 4) {
         formatted += ') ' + value.slice(4, 7);
     }
-    if (value.length >= 8) {
+    if (value.length >= 7) {
         formatted += '-' + value.slice(7, 9);
     }
-    if (value.length >= 10) {
+    if (value.length >= 9) {
         formatted += '-' + value.slice(9, 11);
     }
 
     input.value = formatted;
 }
 
-// Apply phone formatting
-document.addEventListener('DOMContentLoaded', () => {
+function initPhoneFormatting() {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
     phoneInputs.forEach(input => {
         input.addEventListener('input', () => formatPhoneNumber(input));
     });
+}
+
+// ============================================
+// EXTERNAL LINKS — открытие внешних ссылок в новой вкладке
+// ============================================
+
+function initExternalLinks() {
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+        // Если ссылка ведёт на внешний сайт
+        if (!link.href.includes(window.location.hostname)) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+}
+
+// ============================================
+// INITIALIZE — запуск при загрузке страницы
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    initSmoothScroll();
+    initDonationForm();
+    initScrollAnimations();
+    initParallax();
+    initHeaderScroll();
+    initPhoneFormatting();
+    initExternalLinks();
+
+    console.log('Зерно Веры — сайт загружен успешно! v2.0');
 });

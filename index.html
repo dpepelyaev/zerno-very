@@ -3,76 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Семейный центр «Зерно Веры» при Свято-Екатерининском соборе. Православное воспитание детей, программы для семей, духовно-нравственное развитие.">
+    <meta name="description" content="Семейный центр «Зерно Веры» при Свято-Екатерининском соборе. Православное воспитание детей, программы для семей, духовно-нравственное развитие. Поддержите нашу миссию!">
     <title>Зерно Веры — Православный семейный центр в Краснодаре</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <!-- 1. Hero Section -->
+    <!-- ============================================
+         1. HERO — Главный экран
+         ============================================ -->
     <section id="hero" class="hero">
         <div class="hero-background"></div>
+        <div class="hero-ornament hero-ornament-tl"></div>
+        <div class="hero-ornament hero-ornament-br"></div>
         <div class="container hero-content">
-            <img src="optimized/logo-ru.jpg" alt="Зерно Веры" class="hero-logo">
+            <img src="optimized/logo-enhanced.png" alt="Зерно Веры" class="hero-logo">
             <h1 class="hero-title">Поддержите семейные ценности</h1>
             <p class="hero-subtitle">Семейный центр «Зерно веры» с 2007 года помогает семьям расти вместе — детям и родителям</p>
-            <a href="#cta" class="btn btn-primary">Поддержать центр</a>
+            <a href="#donate" class="btn btn-primary">Поддержать центр</a>
         </div>
     </section>
 
-    <!-- 2. Carousel Section -->
-    <section id="carousel" class="carousel">
-        <div class="container">
-            <div class="carousel-wrapper">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5444.jpg" alt="Портрет основателей" loading="lazy">
-                        <p class="carousel-caption">Отец Андрей и матушка Светлана Кравченко — основатели центра</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5438.jpg" alt="Дети с геобордами" loading="lazy">
-                        <p class="carousel-caption">Развивающие занятия для детей</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5439.jpg" alt="Взрослые в народных костюмах" loading="lazy">
-                        <p class="carousel-caption">Праздничные мероприятия с соблюдением традиций</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5440.jpg" alt="Пасхальное фото у собора" loading="lazy">
-                        <p class="carousel-caption">Пасха у Свято-Екатерининского собора</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5441.jpg" alt="Мама с малышом" loading="lazy">
-                        <p class="carousel-caption">Программы для мам с малышами</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5442.jpg" alt="Дети с музыкальными инструментами" loading="lazy">
-                        <p class="carousel-caption">Музыкальное развитие детей</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5443.jpg" alt="Малыши с кубиками" loading="lazy">
-                        <p class="carousel-caption">Раннее развитие и творчество</p>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="optimized/IMG_5445.jpg" alt="Занятие каллиграфией" loading="lazy">
-                        <p class="carousel-caption">Каллиграфия — внимание и усидчивость</p>
-                    </div>
-                </div>
-                <button class="carousel-btn carousel-btn-prev" aria-label="Предыдущее фото">‹</button>
-                <button class="carousel-btn carousel-btn-next" aria-label="Следующее фото">›</button>
-                <div class="carousel-dots"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. About Section -->
+    <!-- ============================================
+         2. О ЦЕНТРЕ — Миссия + Основатели + Статус
+         ============================================ -->
     <section id="about" class="about">
+        <div class="section-ornament section-ornament-left"></div>
+        <div class="section-ornament section-ornament-right"></div>
         <div class="container">
             <h2 class="section-title">О центре</h2>
 
             <div class="about-grid">
+                <!-- Левая колонка: статус -->
                 <div class="about-status">
                     <div class="status-item">
                         <span class="status-icon">🏛️</span>
@@ -86,258 +51,110 @@
                         <span class="status-icon">📅</span>
                         <p>Работаем с 2007 года — более 18 лет</p>
                     </div>
-                    <div class="status-item">
-                        <span class="status-icon">📋</span>
-                        <p>АНО «Семейный центр «Зерно веры»</p>
-                    </div>
                 </div>
 
+                <!-- Правая колонка: основатели -->
                 <div class="about-founders">
                     <img src="optimized/IMG_5444.jpg" alt="Основатели центра" class="founders-photo" loading="lazy">
                     <div class="founders-text">
-                        <p><strong>Руководитель центра</strong> — матушка Светлана Кравченко</p>
                         <p><strong>Духовник центра</strong> — иерей Андрей Кравченко, настоятель Благовещенского храма Краснодара</p>
+                        <p><strong>Руководитель центра</strong> — матушка Светлана Кравченко</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Миссия -->
             <div class="about-mission">
                 <h3>Наша миссия</h3>
                 <p class="mission-text">Помочь прорасти зёрнышку веры в сердце каждого ребёнка и взрослого, чтобы оно проросло и приумножилось, став хлебом, питающим семью православную!</p>
             </div>
-
-            <div class="about-download">
-                <a href="Договор_пожертвования_на_Зерно_Веры.docx" class="btn btn-secondary" download>Скачать договор о поддержке (для юр. лиц)</a>
-            </div>
         </div>
     </section>
 
-    <!-- 4. Quote Section -->
-    <section id="quote" class="quote">
+    <!-- ============================================
+         3. НАПРАВЛЕНИЯ — 5 карточек
+         ============================================ -->
+    <section id="directions" class="directions">
         <div class="container">
-            <blockquote class="quote-text">
-                <p>«Современной семье нужна не просто "развивашка" для детей, а надёжная среда, где растут все вместе — и дети, и родители»</p>
-            </blockquote>
+            <h2 class="section-title">Направления работы</h2>
+
+            <div class="directions-grid">
+                <a href="#" class="direction-card">
+                    <span class="direction-icon">👶</span>
+                    <h3>Мамы с малышами</h3>
+                    <p>Программы для будущих родителей и семей с детьми от 0 до 4 лет</p>
+                </a>
+
+                <a href="#" class="direction-card">
+                    <span class="direction-icon">🎒</span>
+                    <h3>Дошкольники</h3>
+                    <p>Подготовка к школе, развитие и духовно-нравственное воспитание (4–7 лет)</p>
+                </a>
+
+                <a href="#" class="direction-card">
+                    <span class="direction-icon">📚</span>
+                    <h3>Школьники</h3>
+                    <p>Семейная школа, кружки и студии для детей и подростков (7–16 лет)</p>
+                </a>
+
+                <a href="#" class="direction-card">
+                    <span class="direction-icon">💒</span>
+                    <h3>Супружество</h3>
+                    <p>Клуб православных родителей, консультации семейного психолога</p>
+                </a>
+
+                <a href="#" class="direction-card">
+                    <span class="direction-icon">🎭</span>
+                    <h3>Творчество для всей семьи</h3>
+                    <p>Музыкальные спектакли, праздники, хореография, вокал, рукоделие</p>
+                </a>
+            </div>
+
+            <p class="directions-note">Подробнее о каждом направлении — скоро на отдельных страницах</p>
         </div>
     </section>
 
-    <!-- 5. Programs Section -->
-    <section id="programs" class="programs">
+    <!-- ============================================
+         4. ПОДДЕРЖАТЬ — Реквизиты + Форма
+         ============================================ -->
+    <section id="donate" class="donate">
+        <div class="section-ornament section-ornament-left"></div>
+        <div class="section-ornament section-ornament-right"></div>
         <div class="container">
-            <h2 class="section-title">Программы для детей</h2>
+            <h2 class="section-title">Поддержать центр</h2>
 
-            <div class="programs-grid">
-                <div class="program-card">
-                    <span class="program-icon">👶</span>
-                    <h3>Крошки</h3>
-                    <p class="program-age">1,5–4 года</p>
-                    <p>Растём в сотворчестве и сказке</p>
-                </div>
+            <div class="donate-grid">
+                <!-- Левая колонка: реквизиты -->
+                <div class="donate-requisites">
+                    <h3>Реквизиты для перевода</h3>
+                    
+                    <div class="requisites-block">
+                        <p class="org-name"><strong>Автономная некоммерческая организация по поддержке семьи, супружества, отцовства, материнства и детства «Семейный центр «Зерно Веры»</strong></p>
+                        
+                        <table class="requisites-table">
+                            <tr><td>ИНН</td><td>2310223402</td></tr>
+                            <tr><td>КПП</td><td>231001001</td></tr>
+                            <tr><td>ОГРН</td><td>1212300013419</td></tr>
+                            <tr><td>Расчётный счёт</td><td>40703810100000000214</td></tr>
+                            <tr><td>Банк</td><td>КБ «КУБАНЬ КРЕДИТ» ООО</td></tr>
+                            <tr><td>БИК</td><td>040349722</td></tr>
+                            <tr><td>Корр. счёт</td><td>30101810200000000722</td></tr>
+                        </table>
 
-                <div class="program-card">
-                    <span class="program-icon">🎵</span>
-                    <h3>Осьминотки</h3>
-                    <p class="program-age">4+ года</p>
-                    <p>Речь, музыкальный слух, координация через игру</p>
-                </div>
+                        <p class="requisites-address">Юридический адрес: 350000, Краснодарский край, г. Краснодар, ул. Коммунаров, дом 52</p>
+                    </div>
 
-                <div class="program-card">
-                    <span class="program-icon">📚</span>
-                    <h3>Добрые ступеньки к школе</h3>
-                    <p class="program-age">4–6 лет</p>
-                    <p>РКШ — интеллект + духовность</p>
-                </div>
-
-                <div class="program-card">
-                    <span class="program-icon">🏖️</span>
-                    <h3>Песочная страна</h3>
-                    <p class="program-age">2–12 лет</p>
-                    <p>Эмоциональный интеллект через игру с песком</p>
-                </div>
-
-                <div class="program-card">
-                    <span class="program-icon">🎭</span>
-                    <h3>Музыкальные спектакли</h3>
-                    <p class="program-age">Все возрасты</p>
-                    <p>Искусство и красота</p>
-                </div>
-
-                <div class="program-card">
-                    <span class="program-icon">🎤</span>
-                    <h3>Вокальная студия</h3>
-                    <p class="program-age">Все возрасты</p>
-                    <p>Радость, чуткость, уверенность в себе</p>
-                </div>
-
-                <div class="program-card">
-                    <span class="program-icon">✍️</span>
-                    <h3>Каллиграфия</h3>
-                    <p class="program-age">Школьники</p>
-                    <p>Внимание, усидчивость, красота письма</p>
-                </div>
-
-                <div class="program-card">
-                    <span class="program-icon">🎓</span>
-                    <h3>Семейная школа</h3>
-                    <p class="program-age">7–16 лет (1–9 кл.)</p>
-                    <p>Знания + духовно-нравственное воспитание</p>
-                </div>
-            </div>
-
-            <div class="programs-note">
-                <p><strong>Бесплатные социальные проекты</strong> доступны всем участникам центра.</p>
-                <p>Современный педагогический инструментарий, авторские методики.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. For Parents Section -->
-    <section id="for-parents" class="for-parents">
-        <div class="container">
-            <h2 class="section-title">Для родителей</h2>
-
-            <div class="parents-grid">
-                <div class="parent-card">
-                    <span class="parent-icon">💬</span>
-                    <h3>Семейный психолог</h3>
-                    <p>Говорить на одном языке с детьми, сохранить любовь в браке, преодолеть сложности</p>
-                </div>
-
-                <div class="parent-card">
-                    <span class="parent-icon">🎭</span>
-                    <h3>Совместные проекты</h3>
-                    <p>Музыкальные спектакли и праздники, где участвует вся семья — дети и родители вместе</p>
-                </div>
-
-                <div class="parent-card">
-                    <span class="parent-icon">🤝</span>
-                    <h3>Поддержка</h3>
-                    <p>Пространство, где можно быть уставшим, сомневающимся, ищущим — и найти единомышленников</p>
-                </div>
-
-                <div class="parent-card">
-                    <span class="parent-icon">👥</span>
-                    <h3>Клуб православных родителей</h3>
-                    <p>Беседы о семье, браке, воспитании детей, духовном росте и личностном развитии</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Concerts Section -->
-    <section id="concerts" class="concerts">
-        <div class="container">
-            <h2 class="section-title">Концертная деятельность</h2>
-
-            <div class="concerts-content">
-                <div class="concerts-text">
-                    <p class="concerts-intro">Центр выходит за пределы «развивашек» — мы даём <strong>полноценные полуторачасовые спектакли</strong> в главном концертном зале Краснодара на 1500 мест (Красная, 5).</p>
-
-                    <p>Хороводы в фойе, царь и царица встречают гостей, пряники и калачи — <strong>живые традиции</strong>, которые мы не пропагандируем, а просто так живём.</p>
-
-                    <div class="concerts-holidays">
-                        <h3>Наши праздники:</h3>
-                        <ul>
-                            <li>Рождество Христово</li>
-                            <li>Масленица</li>
-                            <li>Пасха</li>
-                        </ul>
+                    <div class="donate-docs">
+                        <a href="Договор_пожертвования_на_Зерно_Веры.docx" class="btn btn-secondary" download>Скачать договор (для юр. лиц)</a>
                     </div>
                 </div>
 
-                <div class="concerts-image">
-                    <img src="optimized/IMG_5440.jpg" alt="Пасхальное празднование" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают «Зерно веры»</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <p>«Мы пришли в центр, когда дочке был год. Начинали с «Крошек» — это было такое тёплое, семейное пространство! Сейчас она уже в хореографии, а младший сын тоже ходит на занятия. Для нас это стало вторым домом.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">Анна Петрова</p>
-                        <p class="author-info">мама двоих детей</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <p>«Мой ребёнок учится в семейной школе, уже 4-й класс. Это уникальное волшебное пространство рядом с собором — так вдохновляет и укрепляет людей, которые ищут веру и храм своей жизни.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">Екатерина Смирнова</p>
-                        <p class="author-info">мама ученика семейной школы</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <p>«У нас четверо детей, и все они в разное время посещали центр — «Воинство Христово», «Девичья краса», «Осьминотки». Это единственное место, где учат главному: любить, трудиться и отвечать за свои поступки.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">Мария и Дмитрий Ковалёвы</p>
-                        <p class="author-info">многодетная семья</p>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">
-                        <p>«Я с центром с 2010 года — прошли путь от «Ладушек» до семейной школы. За эти годы мы не просто нашли педагогов, мы нашли семью. Здесь наши дети растут в православной среде, окружённые любовью.»</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <p class="author-name">Ольга Николаева</p>
-                        <p class="author-info">участница с 2010 года</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonials-benefits">
-                <div class="benefit-item">
-                    <span class="benefit-icon">❤️</span>
-                    <p>Дети учатся главному — любить, трудиться, отвечать за поступки</p>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🤝</span>
-                    <p>Родители находят поддержку и единомышленников</p>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🏡</span>
-                    <p>Семья становится крепче через общие традиции и ценности</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. CTA Section -->
-    <section id="cta" class="cta">
-        <div class="container">
-            <h2 class="section-title">Присоединяйтесь к нам</h2>
-
-            <div class="cta-grid">
-                <div class="cta-card">
-                    <h3>Хочу узнать больше</h3>
-                    <p>Запишитесь на бесплатную экскурсию по центру</p>
-                    <form class="cta-form">
-                        <input type="text" name="name" placeholder="Ваше имя" required>
-                        <input type="tel" name="phone" placeholder="Телефон" required>
-                        <input type="number" name="age" placeholder="Возраст ребёнка (лет)" min="0" max="18">
-                        <button type="submit" class="btn btn-primary">Записаться на экскурсию</button>
-                    </form>
-                </div>
-
-                <div class="cta-card">
-                    <h3>Хочу поддержать</h3>
-                    <p>Поддержите проекты центра ежемесячным пожертвованием</p>
-                    <form class="cta-form donation-form">
-                        <div class="donation-amounts">
+                <!-- Правая колонка: форма онлайн-пожертвования -->
+                <div class="donate-form-wrapper">
+                    <h3>Пожертвовать онлайн</h3>
+                    
+                    <form class="donate-form" id="donationForm">
+                        <div class="amount-buttons">
                             <label class="amount-btn">
                                 <input type="radio" name="amount" value="100">
                                 <span>100 ₽</span>
@@ -355,32 +172,50 @@
                                 <span>1000 ₽</span>
                             </label>
                         </div>
+
                         <input type="number" name="custom-amount" placeholder="Или введите свою сумму" min="1">
+
                         <label class="checkbox-label">
                             <input type="checkbox" name="recurring">
-                            <span>Ежемесячное списание</span>
+                            <span>Ежемесячное пожертвование</span>
                         </label>
-                        <button type="submit" class="btn btn-primary">Поддержать</button>
+
+                        <div class="form-agreements">
+                            <label class="checkbox-label checkbox-required">
+                                <input type="checkbox" name="agree-oferta" required>
+                                <span>Я ознакомлен и согласен с <a href="oferta.html" target="_blank">договором пожертвования (офертой)</a></span>
+                            </label>
+
+                            <label class="checkbox-label checkbox-required">
+                                <input type="checkbox" name="agree-privacy" required>
+                                <span>Я согласен на <a href="privacy.html" target="_blank">обработку персональных данных</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-donate">Пожертвовать</button>
+
+                        <p class="form-note">Онлайн-оплата будет доступна после подключения платёжной системы. Пока вы можете перевести средства по реквизитам.</p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 10. Footer -->
+    <!-- ============================================
+         5. FOOTER — Контакты + Юр. информация
+         ============================================ -->
     <footer id="footer" class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <img src="optimized/logo-ru.jpg" alt="Зерно Веры" class="footer-logo">
-                    <p class="footer-tagline">Православный семейный центр при Свято-Екатерининском соборе</p>
+                    <img src="optimized/logo-footer.png" alt="Зерно Веры" class="footer-logo">
+                    <p class="footer-tagline">Православный семейный центр<br>при Свято-Екатерининском соборе</p>
                 </div>
 
                 <div class="footer-section">
                     <h4>Контакты</h4>
-                    <p>📍 Краснодар, ул. Коммунаров, 52<br>
-                    Административное здание, 3 этаж<br>
-                    (за Екатерининским кафедральным собором)</p>
+                    <p>📍 г. Краснодар, ул. Коммунаров, 52<br>
+                    Административное здание, 3 этаж</p>
                     <p>📞 <a href="tel:+79898200400">8-98-98-200-400</a></p>
                 </div>
 
@@ -392,15 +227,15 @@
                 </div>
 
                 <div class="footer-section">
-                    <h4>Юридическая информация</h4>
-                    <p>АНО «Семейный центр «Зерно веры»</p>
-                    <p>ИНН: 2310223402</p>
-                    <p>ОГРН: 1212300013419</p>
+                    <h4>Документы</h4>
+                    <p><a href="oferta.html">Договор пожертвования (оферта)</a></p>
+                    <p><a href="privacy.html">Политика конфиденциальности</a></p>
+                    <p class="footer-legal">АНО «Семейный центр «Зерно веры»<br>ИНН: 2310223402 | ОГРН: 1212300013419</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2007–2026 Семейный центр «Зерно веры». Все права защищены.</p>
+                <p>© 2007–2026 Семейный центр «Зерно веры». Все права защищены.</p>
             </div>
         </div>
     </footer>

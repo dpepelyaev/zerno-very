@@ -1,11 +1,11 @@
 /* ============================================
-   ЗЕРНО ВЕРЫ — Современный дизайн 2026
-   Яркий, живой, плавный
+   ЗЕРНО ВЕРЫ — Компактная версия 2026
+   Для приёма пожертвований
    ============================================ */
 
 /* CSS Variables */
 :root {
-    /* Цветовая палитра — яркая и тёплая */
+    /* Цветовая палитра — тёплая и уютная */
     --c-bg: #FAF7F2;
     --c-bg-alt: #F0EBE3;
     --c-white: #FFFFFF;
@@ -18,6 +18,7 @@
     --c-red-dark: #B33030;
     --c-text: #1A1A1A;
     --c-text-muted: #5A5A5A;
+    --c-cream: #E8DCC8;
 
     /* Шрифты */
     --f-heading: 'Cormorant Garamond', serif;
@@ -26,20 +27,19 @@
     /* Тени */
     --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.04);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
-    --shadow-colored: 0 8px 30px rgba(46, 139, 87, 0.15);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+    --shadow-colored: 0 8px 24px rgba(46, 139, 87, 0.15);
 
     /* Скругления */
     --r-sm: 8px;
-    --r-md: 16px;
-    --r-lg: 24px;
-    --r-xl: 32px;
+    --r-md: 12px;
+    --r-lg: 20px;
 
     /* Анимация */
     --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --duration: 0.5s;
+    --duration: 0.4s;
 }
 
 /* ============================================
@@ -49,7 +49,7 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -63,16 +63,7 @@
     }
     50% {
         box-shadow: 0 4px 20px rgba(217, 64, 64, 0.35),
-                    0 0 0 12px rgba(217, 64, 64, 0);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
+                    0 0 0 10px rgba(217, 64, 64, 0);
     }
 }
 
@@ -97,10 +88,9 @@ body {
     font-family: var(--f-body);
     color: var(--c-text);
     background: var(--c-bg);
-    line-height: 1.7;
+    line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -130,13 +120,13 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--c-green-dark);
 }
 
-h1 { font-size: clamp(40px, 6vw, 72px); }
-h2 { font-size: clamp(32px, 4vw, 52px); }
-h3 { font-size: clamp(24px, 3vw, 32px); }
-h4 { font-size: 22px; }
+h1 { font-size: clamp(36px, 5vw, 60px); }
+h2 { font-size: clamp(28px, 4vw, 44px); }
+h3 { font-size: clamp(20px, 2.5vw, 28px); }
+h4 { font-size: 20px; }
 
 p {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 p:last-child {
@@ -144,18 +134,19 @@ p:last-child {
 }
 
 /* ============================================
-   LAYOUT
+   LAYOUT — Компактные интервалы
    ============================================ */
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 section {
-    padding: 80px 0;
+    padding: 48px 0;
     position: relative;
+    overflow: hidden;
 }
 
 /* ============================================
@@ -166,39 +157,38 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 40px;
+    padding: 14px 32px;
     font-family: var(--f-heading);
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     border: none;
-    border-radius: var(--r-lg);
+    border-radius: var(--r-md);
     cursor: pointer;
     transition: all var(--duration) var(--ease);
     text-decoration: none;
-    letter-spacing: 0.5px;
 }
 
 .btn-primary {
     background: linear-gradient(135deg, var(--c-red) 0%, var(--c-red-dark) 100%);
     color: var(--c-white);
-    box-shadow: 0 4px 20px rgba(217, 64, 64, 0.35);
+    box-shadow: 0 4px 16px rgba(217, 64, 64, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(217, 64, 64, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(217, 64, 64, 0.4);
     color: var(--c-white);
 }
 
 .btn-secondary {
     background: linear-gradient(135deg, var(--c-green) 0%, var(--c-green-dark) 100%);
     color: var(--c-white);
-    box-shadow: 0 4px 20px rgba(46, 139, 87, 0.3);
+    box-shadow: 0 4px 16px rgba(46, 139, 87, 0.25);
 }
 
 .btn-secondary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(46, 139, 87, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(46, 139, 87, 0.35);
     color: var(--c-white);
 }
 
@@ -208,60 +198,84 @@ section {
 
 .section-title {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     position: relative;
 }
 
 .section-title::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 50px;
     height: 3px;
     background: linear-gradient(90deg, var(--c-gold), var(--c-green));
-    margin: 16px auto 0;
+    margin: 12px auto 0;
     border-radius: 2px;
 }
 
 /* ============================================
-   SCROLL ANIMATIONS (CSS)
+   ДЕКОРАТИВНЫЕ УЗОРЫ
    ============================================ */
 
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+.hero-ornament,
+.section-ornament {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+.hero-ornament-tl {
+    top: 20px;
+    left: 20px;
+    background-image: url('images/ornament-corner-1.png');
+}
+
+.hero-ornament-br {
+    bottom: 100px;
+    right: 20px;
+    background-image: url('images/ornament-corner-2.png');
+    transform: rotate(180deg);
+}
+
+.section-ornament-left {
+    top: 20px;
+    left: -50px;
+    background-image: url('images/ornament-corner-3.png');
+    width: 150px;
+    height: 150px;
+    opacity: 0.1;
+}
+
+.section-ornament-right {
+    bottom: 20px;
+    right: -50px;
+    background-image: url('images/ornament-corner-3.png');
+    width: 150px;
+    height: 150px;
+    transform: scaleX(-1);
+    opacity: 0.1;
 }
 
 /* ============================================
    1. HERO SECTION
-   Полноэкранное фото с оверлеем
    ============================================ */
 
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: url('optimized/IMG_5440.jpg') center / cover no-repeat;
-    overflow: hidden;
+    background: url('images/hero-bg.png') center / cover no-repeat;
 }
 
 .hero-background {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(15, 50, 30, 0.5) 0%,
-        rgba(15, 40, 25, 0.65) 50%,
-        rgba(10, 30, 20, 0.8) 100%
-    );
-    z-index: 1;
+    /* Затемнение больше не нужно для светлого фона */
+    display: none;
 }
 
 .hero-content {
@@ -269,37 +283,37 @@ section {
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    animation: fadeInUp 1s var(--ease-out) 0.3s both;
+    padding: 20px;
+    animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
 }
 
 .hero-logo {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    width: 280px;
+    height: auto;
+    margin: 0 auto 16px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
 
 .hero-title {
-    color: var(--c-white);
-    margin-bottom: 20px;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    color: var(--c-green-dark); /* Тёмный текст для светлого фона */
+    margin-bottom: 16px;
+    text-shadow: none;
+    font-size: clamp(32px, 5vw, 48px);
 }
 
 .hero-subtitle {
-    font-size: clamp(18px, 2.2vw, 24px);
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 40px;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--c-text); /* Тёмный текст */
+    margin-bottom: 32px;
     line-height: 1.6;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
 }
 
 .hero .btn-primary {
     animation: pulse 2.5s ease-in-out infinite;
-    font-size: 20px;
-    padding: 18px 48px;
+    font-size: 18px;
+    padding: 16px 48px;
+    box-shadow: 0 8px 20px rgba(46, 139, 87, 0.25);
 }
 
 /* Волна внизу hero */
@@ -309,707 +323,287 @@ section {
     bottom: -2px;
     left: 0;
     width: 100%;
-    height: 80px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath d='M0 50 C360 80 720 20 1080 50 S1440 30 1440 40 L1440 80 L0 80Z' fill='%23FFFFFF'/%3E%3C/svg%3E") no-repeat;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath d='M0 40 C480 60 960 20 1440 40 L1440 60 L0 60Z' fill='%23FAF7F2'/%3E%3C/svg%3E") no-repeat;
     background-size: cover;
     z-index: 3;
 }
 
 /* ============================================
-   2. CAROUSEL SECTION
-   ============================================ */
-
-.carousel {
-    background: var(--c-white);
-    padding: 60px 0 80px;
-}
-
-.carousel-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--r-lg);
-    box-shadow: var(--shadow-lg);
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.6s var(--ease-out);
-}
-
-.carousel-slide {
-    min-width: 100%;
-    position: relative;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 550px;
-    object-fit: cover;
-}
-
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
-    color: var(--c-white);
-    padding: 48px 32px 28px;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0.3px;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--c-green-dark);
-    border: none;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    font-size: 28px;
-    cursor: pointer;
-    transition: all 0.3s var(--ease);
-    z-index: 10;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-}
-
-.carousel-btn:hover {
-    background: var(--c-white);
-    transform: translateY(-50%) scale(1.12);
-    box-shadow: var(--shadow-lg);
-}
-
-.carousel-btn-prev {
-    left: 20px;
-}
-
-.carousel-btn-next {
-    right: 20px;
-}
-
-.carousel-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: all 0.4s var(--ease);
-}
-
-.carousel-dot.active {
-    background: var(--c-white);
-    width: 32px;
-    border-radius: 5px;
-}
-
-/* ============================================
-   3. ABOUT SECTION
+   2. ABOUT SECTION
    ============================================ */
 
 .about {
     background: var(--c-bg);
-    padding: 80px 0;
+    padding: 56px 0;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 48px;
+    gap: 32px;
+    margin-bottom: 32px;
 }
 
 .about-status {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .status-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
     background: var(--c-white);
-    padding: 20px 24px;
+    padding: 16px 20px;
     border-radius: var(--r-md);
-    box-shadow: var(--shadow-sm);
-    border-left: 4px solid var(--c-gold);
-    transition: all 0.4s var(--ease);
+    box-shadow: var(--shadow-xs);
+    border-left: 3px solid var(--c-gold);
+    transition: all 0.3s var(--ease);
 }
 
 .status-item:hover {
-    transform: translateX(6px);
-    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
 }
 
 .status-icon {
-    font-size: 28px;
+    font-size: 24px;
     flex-shrink: 0;
     line-height: 1.2;
 }
 
 .status-item p {
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
 .about-founders {
     background: var(--c-white);
-    padding: 20px;
+    padding: 16px;
     border-radius: var(--r-lg);
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .founders-photo {
     width: 100%;
     border-radius: var(--r-md);
-    margin-bottom: 20px;
-    transition: transform 0.6s var(--ease);
-}
-
-.about-founders:hover .founders-photo {
-    transform: scale(1.03);
+    margin-bottom: 16px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
 }
 
 .founders-text p {
-    margin-bottom: 12px;
-    font-size: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
 }
 
 .about-mission {
     background: linear-gradient(135deg, var(--c-green-light) 0%, var(--c-gold-light) 100%);
-    padding: 40px;
+    padding: 28px 32px;
     border-radius: var(--r-lg);
     text-align: center;
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 32px;
     border: 1px solid rgba(46, 139, 87, 0.1);
 }
 
 .about-mission h3 {
     color: var(--c-gold);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+    font-size: 22px;
 }
 
 .mission-text {
-    font-size: 20px;
+    font-size: 17px;
     font-style: italic;
-    line-height: 1.8;
+    line-height: 1.7;
     color: var(--c-green-dark);
 }
 
-.about-download {
-    text-align: center;
-}
-
 /* ============================================
-   4. QUOTE SECTION
-   Фото с параллаксом
+   3. DIRECTIONS SECTION — 5 направлений
    ============================================ */
 
-.quote {
-    background: url('optimized/IMG_5439.jpg') center / cover no-repeat fixed;
-    position: relative;
-    padding: 100px 0;
-}
-
-.quote::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(26, 74, 53, 0.87) 0%,
-        rgba(15, 40, 28, 0.92) 100%
-    );
-}
-
-.quote .container {
-    position: relative;
-    z-index: 1;
-}
-
-.quote-text {
-    text-align: center;
-    font-size: clamp(22px, 3vw, 30px);
-    font-style: italic;
-    line-height: 1.8;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px;
-    position: relative;
-    color: var(--c-white);
-}
-
-.quote-text::before {
-    content: '\201C';
-    font-size: 140px;
-    font-family: var(--f-heading);
-    position: absolute;
-    top: -30px;
-    left: 10px;
-    color: rgba(212, 168, 67, 0.4);
-    line-height: 1;
-}
-
-.quote-text p {
-    color: var(--c-white);
-}
-
-/* ============================================
-   5. PROGRAMS SECTION
-   ============================================ */
-
-.programs {
+.directions {
     background: var(--c-white);
-    padding: 80px 0;
+    padding: 56px 0;
 }
 
-.programs-grid {
+.directions-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.program-card {
+.direction-card {
     background: var(--c-bg);
-    padding: 32px 20px 28px;
+    padding: 24px 16px 20px;
     border-radius: var(--r-md);
     text-align: center;
-    box-shadow: var(--shadow-xs);
-    transition: all 0.4s var(--ease);
+    transition: all 0.3s var(--ease);
+    text-decoration: none;
+    color: inherit;
     position: relative;
     overflow: hidden;
 }
 
-/* Цветная линия при hover */
-.program-card::before {
+.direction-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: linear-gradient(90deg, var(--c-green), var(--c-gold));
     transform: scaleX(0);
-    transition: transform 0.4s var(--ease);
+    transition: transform 0.3s var(--ease);
 }
 
-.program-card:hover {
-    transform: translateY(-8px);
+.direction-card:hover {
+    transform: translateY(-6px);
     box-shadow: var(--shadow-md);
     background: var(--c-white);
 }
 
-.program-card:hover::before {
+.direction-card:hover::before {
     transform: scaleX(1);
 }
 
-.program-icon {
-    font-size: 40px;
+.direction-icon {
+    font-size: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 16px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
     background: var(--c-white);
     border-radius: 50%;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-xs);
 }
 
-.program-card h3 {
-    font-size: 22px;
+.direction-card h3 {
+    font-size: 16px;
     color: var(--c-green-dark);
-    margin-bottom: 6px;
-}
-
-.program-age {
-    color: var(--c-gold);
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.program-card > p:last-child {
-    font-size: 14px;
-    color: var(--c-text-muted);
-    margin: 0;
-}
-
-.programs-note {
-    background: linear-gradient(135deg, var(--c-green) 0%, var(--c-green-dark) 100%);
-    color: var(--c-white);
-    padding: 32px 40px;
-    border-radius: var(--r-lg);
-    text-align: center;
-    box-shadow: var(--shadow-colored);
-}
-
-.programs-note p {
     margin-bottom: 8px;
+    line-height: 1.3;
 }
 
-.programs-note p:last-child {
-    margin-bottom: 0;
-}
-
-/* ============================================
-   6. FOR PARENTS SECTION
-   ============================================ */
-
-.for-parents {
-    background: var(--c-bg);
-    padding: 80px 0;
-}
-
-.parents-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.parent-card {
-    background: var(--c-white);
-    padding: 32px 24px;
-    border-radius: var(--r-md);
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.4s var(--ease);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Золотая линия снизу при hover */
-.parent-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: var(--c-gold);
-    transition: width 0.4s var(--ease);
-    border-radius: 0 0 var(--r-md) var(--r-md);
-}
-
-.parent-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
-}
-
-.parent-card:hover::after {
-    width: 60%;
-}
-
-.parent-icon {
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 16px;
-    background: var(--c-green-light);
-    border-radius: 50%;
-}
-
-.parent-card h3 {
-    color: var(--c-green-dark);
-    margin-bottom: 12px;
-    font-size: 22px;
-}
-
-.parent-card p {
-    font-size: 15px;
-    color: var(--c-text-muted);
-    line-height: 1.6;
-}
-
-/* ============================================
-   7. CONCERTS SECTION
-   ============================================ */
-
-.concerts {
-    background: var(--c-white);
-    padding: 80px 0;
-}
-
-.concerts-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-}
-
-.concerts-intro {
-    font-size: 19px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.concerts-holidays {
-    background: linear-gradient(135deg, var(--c-green-light), var(--c-gold-light));
-    padding: 24px 28px;
-    border-radius: var(--r-md);
-    margin-top: 24px;
-    border: 1px solid rgba(46, 139, 87, 0.1);
-}
-
-.concerts-holidays h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: var(--c-green-dark);
-}
-
-.concerts-holidays ul {
-    list-style: none;
-}
-
-.concerts-holidays li {
-    padding: 8px 0 8px 28px;
-    position: relative;
-    font-size: 16px;
-}
-
-.concerts-holidays li::before {
-    content: '\2720';
-    position: absolute;
-    left: 0;
-    color: var(--c-gold);
-    font-size: 18px;
-}
-
-.concerts-image {
-    position: relative;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-}
-
-.concerts-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s var(--ease);
-}
-
-.concerts-image:hover img {
-    transform: scale(1.05);
-}
-
-/* ============================================
-   8. TESTIMONIALS SECTION
-   ============================================ */
-
-.testimonials {
-    background: var(--c-bg);
-    padding: 80px 0;
-}
-
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 48px;
-}
-
-.testimonial-card {
-    background: var(--c-white);
-    padding: 32px;
-    border-radius: var(--r-md);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    transition: all 0.4s var(--ease);
-    border-left: 4px solid transparent;
-}
-
-.testimonial-card:hover {
-    box-shadow: var(--shadow-md);
-    border-left-color: var(--c-gold);
-}
-
-.testimonial-quote {
-    position: relative;
-    padding-left: 24px;
-}
-
-.testimonial-quote::before {
-    content: '\201C';
-    position: absolute;
-    left: 0;
-    top: -8px;
-    font-size: 48px;
-    font-family: var(--f-heading);
-    color: var(--c-gold);
-    line-height: 1;
-    opacity: 0.6;
-}
-
-.testimonial-quote p {
-    font-style: italic;
-    color: var(--c-text);
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-.author-name {
-    font-weight: 700;
-    color: var(--c-green-dark);
-    margin-bottom: 4px;
-    font-size: 16px;
-}
-
-.author-info {
+.direction-card p {
     font-size: 13px;
     color: var(--c-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.testimonials-benefits {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.benefit-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: linear-gradient(135deg, var(--c-green) 0%, var(--c-green-dark) 100%);
-    color: var(--c-white);
-    padding: 24px;
-    border-radius: var(--r-md);
-    box-shadow: var(--shadow-colored);
-    transition: all 0.4s var(--ease);
-}
-
-.benefit-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(46, 139, 87, 0.25);
-}
-
-.benefit-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-}
-
-.benefit-item p {
     margin: 0;
-    font-size: 15px;
     line-height: 1.5;
 }
 
+.directions-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--c-text-muted);
+    font-style: italic;
+}
+
 /* ============================================
-   9. CTA SECTION
+   4. DONATE SECTION — Реквизиты + Форма
    ============================================ */
 
-.cta {
-    background: linear-gradient(135deg, var(--c-green-dark) 0%, var(--c-green) 50%, var(--c-green-dark) 100%);
-    color: var(--c-white);
-    padding: 100px 0 80px;
-    position: relative;
-}
-
-/* Волна сверху CTA */
-.cta::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath d='M0 0 L0 30 C360 60 720 0 1080 30 S1440 10 1440 20 L1440 0Z' fill='%23F0EBE3'/%3E%3C/svg%3E") no-repeat;
-    background-size: cover;
-    z-index: 1;
-}
-
-.cta .section-title {
+.donate {
+    background: linear-gradient(135deg, var(--c-green-dark) 0%, var(--c-green) 100%);
+    padding: 56px 0;
     color: var(--c-white);
 }
 
-.cta .section-title::after {
+.donate .section-title {
+    color: var(--c-white);
+}
+
+.donate .section-title::after {
     background: linear-gradient(90deg, var(--c-gold), rgba(255, 255, 255, 0.5));
 }
 
-.cta-grid {
+.donate-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
 }
 
-.cta-card {
+.donate-requisites,
+.donate-form-wrapper {
     background: var(--c-white);
     color: var(--c-text);
-    padding: 40px;
+    padding: 28px;
     border-radius: var(--r-lg);
     box-shadow: var(--shadow-lg);
-    transition: all 0.4s var(--ease);
 }
 
-.cta-card:hover {
-    transform: translateY(-4px);
-}
-
-.cta-card h3 {
+.donate-requisites h3,
+.donate-form-wrapper h3 {
     color: var(--c-green-dark);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    font-size: 20px;
 }
 
-.cta-form {
+.requisites-block {
+    margin-bottom: 20px;
+}
+
+.org-name {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--c-text);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--c-cream);
+}
+
+.requisites-table {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+}
+
+.requisites-table td {
+    padding: 6px 0;
+    vertical-align: top;
+}
+
+.requisites-table td:first-child {
+    color: var(--c-text-muted);
+    width: 35%;
+    padding-right: 12px;
+}
+
+.requisites-table td:last-child {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.requisites-address {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--c-text-muted);
+    line-height: 1.5;
+}
+
+.donate-docs {
+    text-align: center;
+}
+
+.donate-docs .btn {
+    font-size: 14px;
+    padding: 12px 24px;
+}
+
+/* Форма пожертвования */
+.donate-form {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    margin-top: 20px;
 }
 
-.cta-form input[type="text"],
-.cta-form input[type="tel"],
-.cta-form input[type="number"] {
-    padding: 14px 18px;
-    border: 2px solid #E8E3DA;
-    border-radius: var(--r-sm);
-    font-family: var(--f-body);
-    font-size: 16px;
-    transition: all 0.3s var(--ease);
-    background: var(--c-bg);
-}
-
-.cta-form input:focus {
-    outline: none;
-    border-color: var(--c-green);
-    background: var(--c-white);
-    box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.1);
-}
-
-.donation-amounts {
+.amount-buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
@@ -1027,14 +621,14 @@ section {
 
 .amount-btn span {
     display: block;
-    padding: 14px;
+    padding: 12px 8px;
     text-align: center;
     background: var(--c-bg);
-    border: 2px solid #E8E3DA;
+    border: 2px solid var(--c-cream);
     border-radius: var(--r-sm);
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 14px;
     transition: all 0.3s var(--ease);
-    font-size: 15px;
 }
 
 .amount-btn:hover span {
@@ -1048,89 +642,237 @@ section {
     box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
 }
 
+.donate-form input[type="number"] {
+    padding: 12px 16px;
+    border: 2px solid var(--c-cream);
+    border-radius: var(--r-sm);
+    font-family: var(--f-body);
+    font-size: 15px;
+    transition: all 0.3s var(--ease);
+    background: var(--c-bg);
+}
+
+.donate-form input[type="number"]:focus {
+    outline: none;
+    border-color: var(--c-green);
+    background: var(--c-white);
+    box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+}
+
 .checkbox-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
     cursor: pointer;
     accent-color: var(--c-green);
+    flex-shrink: 0;
+}
+
+.form-agreements {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--c-cream);
+}
+
+.checkbox-required span {
+    font-size: 13px;
+    color: var(--c-text-muted);
+}
+
+.checkbox-required a {
+    color: var(--c-green);
+    text-decoration: underline;
+}
+
+.btn-donate {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.form-note {
+    font-size: 12px;
+    color: var(--c-text-muted);
+    text-align: center;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* Ошибки валидации чекбоксов */
+.checkbox-error {
+    animation: shake 0.4s ease-in-out;
+}
+
+.checkbox-error span {
+    color: var(--c-red) !important;
+}
+
+.checkbox-error input[type="checkbox"] {
+    outline: 2px solid var(--c-red);
+    outline-offset: 2px;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Сообщения формы */
+.form-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: var(--r-md);
+    margin-top: 16px;
+    animation: fadeInUp 0.3s ease-out;
+    position: relative;
+}
+
+.form-message-success {
+    background: var(--c-green-light);
+    border: 1px solid rgba(46, 139, 87, 0.3);
+    color: var(--c-green-dark);
+}
+
+.form-message-error {
+    background: #FEECEC;
+    border: 1px solid rgba(217, 64, 64, 0.3);
+    color: var(--c-red-dark);
+}
+
+.form-message-info {
+    background: var(--c-gold-light);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    color: var(--c-text);
+}
+
+.form-message-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-message-success .form-message-icon {
+    background: var(--c-green);
+    color: white;
+}
+
+.form-message-error .form-message-icon {
+    background: var(--c-red);
+    color: white;
+}
+
+.form-message-info .form-message-icon {
+    background: var(--c-gold);
+    color: white;
+}
+
+.form-message-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.form-message-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    color: inherit;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.form-message-close:hover {
+    opacity: 1;
 }
 
 /* ============================================
-   10. FOOTER
+   5. FOOTER
    ============================================ */
 
 .footer {
     background: var(--c-green-dark);
     color: var(--c-white);
-    padding: 60px 0 24px;
+    padding: 48px 0 20px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 32px;
+    margin-bottom: 32px;
 }
 
 .footer-logo {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-tagline {
-    font-size: 14px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.5;
 }
 
 .footer h4 {
     color: var(--c-gold);
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: 18px;
+    margin-bottom: 12px;
 }
 
 .footer p {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 6px;
 }
 
 .footer a {
     color: rgba(255, 255, 255, 0.85);
-    transition: color 0.3s var(--ease);
 }
 
 .footer a:hover {
     color: var(--c-gold);
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    font-size: 13px;
+.footer-legal {
+    margin-top: 12px;
+    font-size: 11px;
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* ============================================
-   СТАРЫЕ ОРНАМЕНТЫ — скрыть на всякий случай
-   ============================================ */
-
-.ornament-divider,
-.ornament-svg,
-.ornament-line {
-    display: none;
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* ============================================
@@ -1138,14 +880,10 @@ section {
    ============================================ */
 
 @media (max-width: 1024px) {
-    .programs-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .directions-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-
-    .parents-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1153,16 +891,16 @@ section {
 
 @media (max-width: 768px) {
     section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
 
     .hero {
-        min-height: 90vh;
+        min-height: 80vh;
     }
 
     .hero-logo {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 
     .hero .btn-primary {
@@ -1171,62 +909,30 @@ section {
     }
 
     .about-grid,
-    .concerts-content,
-    .cta-grid {
+    .donate-grid {
         grid-template-columns: 1fr;
     }
 
-    .programs-grid,
-    .parents-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonials-benefits {
-        grid-template-columns: 1fr;
-    }
-
-    .carousel-slide img {
-        height: 350px;
-    }
-
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 22px;
-    }
-
-    .donation-amounts {
+    .directions-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .cta-card {
-        padding: 28px;
-    }
-
-    .cta {
-        padding: 80px 0 60px;
+    .amount-buttons {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    /* Параллакс выключаем на мобильных */
-    .quote {
-        background-attachment: scroll;
+        gap: 24px;
     }
 
     .hero::after {
-        height: 50px;
-    }
-
-    .cta::before {
         height: 40px;
+    }
+    
+    .hero-ornament,
+    .section-ornament {
+        display: none;
     }
 }
 
@@ -1240,49 +946,28 @@ section {
         height: 80px;
     }
 
-    .carousel-slide img {
-        height: 260px;
+    .directions-grid {
+        grid-template-columns: 1fr;
     }
 
-    .quote-text {
-        font-size: 18px;
-        padding: 24px;
+    .direction-card {
+        padding: 20px 16px;
     }
 
-    .quote-text::before {
-        font-size: 80px;
-        top: -10px;
-    }
-
-    .program-card,
-    .parent-card {
-        padding: 24px 16px;
-    }
-
-    .program-icon,
-    .parent-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 32px;
-    }
-
-    .about-mission {
-        padding: 24px;
-    }
-
-    .mission-text {
-        font-size: 17px;
-    }
-
-    .cta-card {
+    .donate-requisites,
+    .donate-form-wrapper {
         padding: 20px;
     }
 
-    .section-title {
-        margin-bottom: 36px;
+    .about-mission {
+        padding: 20px;
     }
 
-    .carousel {
-        padding: 40px 0 60px;
+    .mission-text {
+        font-size: 15px;
+    }
+
+    .section-title {
+        margin-bottom: 28px;
     }
 }

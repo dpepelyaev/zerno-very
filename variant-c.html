@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вариант C — Двухколоночный</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'PT Serif', serif; color: #1A1A1A; background: #FAF7F2; }
+
+        .variant-badge {
+            position: fixed; top: 20px; left: 20px; z-index: 100;
+            background: rgba(0,0,0,0.7); color: #fff; padding: 10px 20px;
+            border-radius: 8px; font-size: 14px; backdrop-filter: blur(10px);
+        }
+        .variant-badge strong { color: #D4A843; }
+
+        /* HERO — Двухколоночный */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* Левая колонка — фото */
+        .hero-photo {
+            position: relative; overflow: hidden;
+        }
+        .hero-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .hero-photo-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                to right,
+                transparent 60%,
+                #FAF7F2 100%
+            );
+        }
+
+        /* Правая колонка — контент */
+        .hero-info {
+            display: flex; flex-direction: column;
+            justify-content: center;
+            padding: 60px 60px 60px 40px;
+            background: #FAF7F2;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #E8F5EE;
+            color: #2E8B57;
+            padding: 6px 16px; border-radius: 20px;
+            font-size: 13px; margin-bottom: 24px;
+            width: fit-content;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .hero-logo {
+            width: 200px; height: auto;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            color: #1A4A35;
+            margin-bottom: 16px; line-height: 1.2;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+        .hero-subtitle {
+            font-size: 17px; color: #5A5A5A;
+            line-height: 1.7; margin-bottom: 28px;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        /* Миссия */
+        .hero-mission {
+            background: linear-gradient(135deg, #E8F5EE 0%, #FBF3E0 100%);
+            padding: 20px 24px; border-radius: 16px;
+            margin-bottom: 28px; font-style: italic;
+            color: #1A4A35; font-size: 15px; line-height: 1.7;
+            border-left: 4px solid #D4A843;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        /* Счётчики */
+        .hero-stats {
+            display: flex; gap: 24px; margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+        }
+        .stat-item {
+            text-align: center;
+            background: #fff;
+            padding: 12px 20px; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .stat-number {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px; font-weight: 700;
+            color: #2E8B57; line-height: 1;
+        }
+        .stat-label {
+            font-size: 12px; color: #5A5A5A; margin-top: 4px;
+        }
+
+        /* Кнопки */
+        .hero-buttons {
+            display: flex; gap: 12px; flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+        }
+        .btn {
+            display: inline-block; padding: 14px 36px;
+            border-radius: 50px; font-size: 16px;
+            text-decoration: none; font-weight: 600;
+            transition: all 0.3s ease; cursor: pointer;
+            border: 2px solid transparent;
+            font-family: 'PT Serif', serif;
+        }
+        .btn-red {
+            background: #B22222; color: #fff;
+            box-shadow: 0 4px 16px rgba(178, 34, 34, 0.3);
+        }
+        .btn-red:hover { background: #8B1A1A; transform: translateY(-2px); }
+        .btn-green {
+            background: transparent; color: #2E8B57;
+            border-color: #2E8B57;
+        }
+        .btn-green:hover { background: #E8F5EE; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Мобильные */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .hero-photo { height: 40vh; }
+            .hero-photo-overlay {
+                background: linear-gradient(
+                    to bottom,
+                    transparent 60%,
+                    #FAF7F2 100%
+                );
+            }
+            .hero-info { padding: 30px 20px; }
+            .hero-stats { gap: 12px; }
+            .stat-item { padding: 10px 14px; }
+            .stat-number { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="variant-badge">Вариант <strong>C</strong> — Двухколоночный: фото + контент</div>
+
+    <section class="hero">
+        <!-- Левая колонка: фото -->
+        <div class="hero-photo">
+            <img src="optimized/IMG_5442.jpg" alt="Семейный центр Зерно Веры">
+            <div class="hero-photo-overlay"></div>
+        </div>
+
+        <!-- Правая колонка: информация -->
+        <div class="hero-info">
+            <span class="hero-badge">При Свято-Екатерининском кафедральном соборе</span>
+            <img src="optimized/logo-enhanced.png" alt="Зерно Веры" class="hero-logo">
+            <h1 class="hero-title">Поддержите семейные ценности</h1>
+            <p class="hero-subtitle">Семейный центр «Зерно веры» с 2007 года помогает семьям расти вместе — детям и родителям</p>
+
+            <div class="hero-mission">
+                Помочь прорасти зёрнышку веры в сердце каждого ребёнка и взрослого, чтобы оно проросло и приумножилось, став хлебом, питающим семью православную!
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">18+</span>
+                    <span class="stat-label">лет работы</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">семей</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">направлений</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#donate" class="btn btn-red">Поддержать центр</a>
+                <a href="#directions" class="btn btn-green">Направления</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

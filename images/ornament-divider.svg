@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40" fill="none">
+  <!-- Центральный элемент — зерно/листок -->
+  <ellipse cx="200" cy="20" rx="6" ry="10" fill="#7D8B5E" opacity="0.8"/>
+  <!-- Левая ветвь -->
+  <path d="M194 20 C180 20, 170 10, 150 12 C135 14, 130 20, 120 18 C110 16, 100 22, 85 20 C75 18, 65 24, 50 20" stroke="#7D8B5E" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M194 20 C180 22, 168 28, 150 26 C135 24, 128 18, 115 22 C105 25, 95 18, 80 22" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Листочки левые -->
+  <path d="M150 12 C145 6, 138 8, 142 14" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.3"/>
+  <path d="M120 18 C115 12, 108 14, 112 20" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.25"/>
+  <path d="M85 20 C80 14, 73 16, 77 22" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.2"/>
+  <!-- Правая ветвь (зеркало) -->
+  <path d="M206 20 C220 20, 230 10, 250 12 C265 14, 270 20, 280 18 C290 16, 300 22, 315 20 C325 18, 335 24, 350 20" stroke="#7D8B5E" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M206 20 C220 22, 232 28, 250 26 C265 24, 272 18, 285 22 C295 25, 305 18, 320 22" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- Листочки правые -->
+  <path d="M250 12 C255 6, 262 8, 258 14" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.3"/>
+  <path d="M280 18 C285 12, 292 14, 288 20" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.25"/>
+  <path d="M315 20 C320 14, 327 16, 323 22" stroke="#7D8B5E" stroke-width="1" fill="#7D8B5E" opacity="0.2"/>
+  <!-- Горизонтальная линия фоновая -->
+  <line x1="30" y1="20" x2="170" y2="20" stroke="#D4C4A8" stroke-width="0.5" opacity="0.5"/>
+  <line x1="230" y1="20" x2="370" y2="20" stroke="#D4C4A8" stroke-width="0.5" opacity="0.5"/>
+</svg>
